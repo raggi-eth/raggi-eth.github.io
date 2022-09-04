@@ -10,10 +10,10 @@ html, body {
     height: 100%;
 }
 
-html {
+/* html {
     display: table;
     margin: auto;
-}
+} */
 
 body {
     /* display: table-cell;
@@ -21,9 +21,23 @@ body {
 }
 
   .responsive-iframe {
-    border: none; 
+    /* border: none; 
     height: 650px; 
     width: 650px; 
-    padding: 5px;
+    padding: 5px; */
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
   }
 
+  .container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+  }
+  
