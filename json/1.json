@@ -3,5 +3,13 @@
   "external_url": "www.darkblock.io", 
   "image": "https://raggi-eth.github.io/1.png", 
   "name": "raggi.eth",
-  "animation_url": "https://raggi-eth.github.io/1.html"
+  "animation_url": "https://raggi-eth.github.io/1.html",
+  "traits": [
+    {
+        "trait_type": "darkblock-id",
+        "value": "DxuPHDejayqtWCuS8b_PVNaleWwZEMN4TlIab2unvR0"
+    }
+]
 }
+
+
