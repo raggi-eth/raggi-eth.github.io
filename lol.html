@@ -18,6 +18,7 @@
     <body>
         <iframe class="frame"></iframe>
         <script>
+          document.domain = "darkblock.io";
           const iframeEl = document.querySelector('iframe');
           const nextQueryValue = !location.search ? 1 :
           Number(location.search.split("?").pop()) + 1;
