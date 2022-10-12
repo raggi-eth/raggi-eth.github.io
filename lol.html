@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <style>
+            .frame {
+            width: 100vw;
+            height: 100vh;
+            }
+        </style>
+    </head>
+    <body>
+        <iframe class="frame"></iframe>
+        <script>
+          document.domain = "darkblock.io";
+          const iframeEl = document.querySelector('iframe');
+          const nextQueryValue = !location.search ? 1 :
+          Number(location.search.split("?").pop()) + 1;
+      
+          iframeEl.src = `https://raggi-eth.github.io/lol.html?${nextQueryValue}`;
+        </script>
+        
+        <script src="" async defer></script>
+    </body>
+</html>
