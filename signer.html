@@ -43,12 +43,25 @@
 
         // Defining the message signing data content.
         message: {
-          /*
-             - Anything you want. Just a JSON Blob that encodes the data you want to send
-             - No required fields
-             - This is DApp Specific
-             - Be as explicit as possible when building out the message schema.
-            */
+          Origin: "darkblock",
+      attachedMoneyInEth: 4.2,
+      from: {
+        name: 'Cow',
+        wallets: [
+          '0xCD2a3d9F938E13CD947Ec05AbC7FE734Df8DD826',
+          '0xDeaDbeefdEAdbeefdEadbEEFdeadbeEFdEaDbeeF',
+        ],
+      },
+      to: [
+        {
+          name: 'Bob',
+          wallets: [
+            '0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB',
+            '0xB0BdaBea57B0BDABeA57b0bdABEA57b0BDabEa57',
+            '0xB0B0b0b0b0b0B000000000000000000000000000',
+          ],
+        },
+      ],
           contents: "Verifying Ownership\n\nClick sign in and accept the OpenSea Terms of Service: https://www.darkblock.io/tos\n\nThis request will not trigger a blockchain transaction or cost any gas fees.\n\nYour authentication status will reset after 24 hours.\n\nNonce:\n"+hashValue,
         },
         // Refers to the keys of the *types* object below.
