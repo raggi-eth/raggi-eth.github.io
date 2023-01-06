@@ -1,34 +1,574 @@
-
+<!DOCTYPE html>
 <html>
-    <head>
-        <style>
-            .content {
-              position: absolute;
-              left: 50%;
-              top: 40%;
-              -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
-            
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Libre+Baskerville&display=swap"
+        rel="stylesheet">
+    <title>decent</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Libre+Baskerville&display=swap');
+
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            background-color: rgb(217, 217, 217);
+
+        }
+
+        .logo {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+            /* stick to the bottom of the div */
+
+            padding-left: 25px;
+
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: fit-content;
+            width: 100%;
+        }
+
+        #logo-generator {
+            display: grid;
+            grid-template-columns: repeat(7, 10px);
+            grid-template-rows: repeat(7, 10px);
+            grid-gap: 0px;
+        }
+
+        #logo-container {}
+        /* make a slight gradient in the headder background */
+        #header {
+            position: fixed;
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            /* justify-content: flex-start; */
+            height: fit-content;
+            width: calc(100% - 80px);
+            padding: 40px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, rgba(54, 54, 54, 1) 0%, rgba(54, 54, 54, 1) 100%);
+        }
+
+        .twoColumnGrid {
+            /* make each section a 2 column grid */
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-gap: 0px;
+            height: fit-content;
+            width: 80vw;
+            font-family: 'Libre Baskerville', serif;
+        }
+
+        .threeColumnGrid {
+            /* make each section a 3 column grid */
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-gap: 0px;
+            height: fit-content;
+            width: 80vw;
+            font-family: 'Libre Baskerville', serif;
+
+        }
+
+        .fourColumnGrid {
+            /* make each section a 4 column grid */
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-gap: 0px;
+            height: fit-content;
+            width: 80vw;
+            font-family: 'Libre Baskerville', serif;
+
+        }
+
+        h1 {
+
+            font-size: 20px;
+            color: rgb(54, 54, 54);
+            margin-top: 0;
+        }
+
+        p {
+            font-size: 15px;
+            color: rgb(54, 54, 54);
+            padding-bottom: 20px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: top;
+            padding-left: 50px;
+
+        }
+
+        #spacer {
+            height: 230px;
+        }
+
+        .line {
+            height: 1px;
+            width: 85vw;
+            background-color: rgb(54, 54, 54);
+            margin: 50px 0;
+        }
+
+        img {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: top;
+            padding-left: 50px;
+            height: auto;
+            width: 80%;
+            padding-bottom: 40px;
+        }
+
+        li {
+            font-size: 15px;
+            color: rgb(54, 54, 54);
+            padding-bottom: 20px;
+        }
+
+        #signUpButton {
+            background-color: rgb(54, 54, 54);
+            color: rgb(255, 255, 255);
+            border: none;
+            border-radius: 5px;
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            margin-left: auto;
+        }
+
+        /* signup on hover */
+        #signUpButton:hover {
+            color: rgb(216, 216, 216);
+        }
+
+        #navBar {
+            /* move the navbar to the right */
+            margin-left: auto;
+
+
+        }
+
+        /* if the page width goes under 768px change all grid layouts to 1 */
+
+        @media screen and (max-width: 768px) {
+            .twoColumnGrid {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
             }
-            </style>
-    </head>
-    <body>
-        
-        <div class="content">
-          <h1>raggi-eth</h1>
-          </iframe>
-            
+
+            .threeColumnGrid {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr 1fr;
+            }
+
+            .fourColumnGrid {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr 1fr 1fr;
+            }
+
+            .content {
+                padding-left: 0;
+            }
+
+            img {
+                padding-left: 0;
+                padding-bottom: 40px;
+            }
+
+            .line {
+                width: 100vw;
+            }
+
+            #logo-generator {
+                display: none;
+            }
+
+            .logo {
+                padding-left: 0;
+            }
+
+            #signUpButton {
+                margin-left: 0;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <!-- add a headder container for the logo, the logo should be on the left -->
+
+    <div id="header">
+        <div id="logo-generator"></div>
+        <div class="logo">decent</div>
+        <div id="navBar">
+            <button id="signUpButton">sign up</button>
         </div>
-        
-    </body>
+    </div>
+    <div id="spacer"></div>
+    <div id="app">
+
+
+
+        <section class="twoColumnGrid">
+            <div class="content">
+                <h1>decent is a platform where creators can share their work and build sustainable careers without
+                    fear of being demonetized.</h1>
+                <P>The creative industry is a vital part of our culture and economy, but it has long been plagued by
+                    centralized entities that exert significant control over content and how it is monetized. This has
+                    led to numerous instances of creators being demonetized or censored for arbitrary reasons, leaving
+                    them without a reliable income stream or a way to showcase their work.
+                </P>
+                <p>decent aims to provide a solution to these issues by giving creators a way to connect with their
+                    audience and monetize their work in a fair and transparent manner. By using blockchain technology,
+                    we are able to create a decentralized platform that gives creators complete control over their
+                    content and how it is shared with their audience.
+                </p>
+
+                <p>We believe that our platform has the potential to revolutionize the creative industry, giving
+                    creators the freedom and autonomy they need to succeed in today's digital landscape. Whether you are
+                    a seasoned creator or just starting out, our platform is here to help you connect with your audience
+                    and build a sustainable career as a creative.
+                </p>
+            </div>
+            <div class="content">
+                <img src="img/inn.png" alt="decent">
+            </div>
+        </section>
+
+        <div class="line"></div>
+
+        <section class="twoColumnGrid">
+
+            <div class="content">
+                <h1>Use Cases</h1>
+                <p>There are so many amazing ways to use our platform! You can use it to crowdfund your creative
+                    projects and deliver the finished product to your supporters. It's also like a Patreon site, where
+                    creators can give their fans early or exclusive access to their content. Or, if you're a creator
+                    looking to monetize your content, you can sell access to your premium content to your most dedicated
+                    fans and followers.
+                </p>
+                <ul>
+                    <li>Crowdfunding: Our platform is a great place to monetize your creative projects and connect with
+                        your supporters. While we're still a new platform, we welcome you to bring your own community
+                        and use our tools to fund and deliver your projects. Whether you have a new idea for a film, a
+                        music album, or a line of handmade products, we can help you make it happen. So why wait? Start
+                        using our platform today and turn your creative dreams into a reality!</li>
+                    <li>Patreon-like access: Similar to Patreon, our platform allows creators to give their fans early
+                        or exclusive access to their content. This could be a great way for creators to build a loyal
+                        following and reward their most dedicated supporters.</li>
+                    <li>Monetizing content: If you're a creator looking to monetize your content, you can use our
+                        platform to sell access to your premium content to your most dedicated fans and followers. This
+                        could be a great way to generate income and sustain your creative pursuits.</li>
+                </ul>
+                <p>Overall, our platform is a powerful tool that allows creators to connect with their supporters, fund
+                    their projects, and monetize their content in a variety of ways.</p>
+
+            </div>
+            <div class="content">
+                <h1>Creators</h1>
+                <p>Creators can use our platform to connect with their audience and monetize their work in a fair and
+                    transparent manner. By using blockchain technology, we are able to create a decentralized platform
+                    that gives creators complete control over their content and how it is shared with their audience.
+                </p>
+
+                <h1>Patrons</h1>
+                <p>Patrons can use our platform to support their favorite creators and help them build sustainable
+                    careers. By using blockchain technology, we are able to create a decentralized platform that gives
+                    patrons complete control over how they support their favorite creators.
+                </p>
+
+                <h1>Collectors</h1>
+                <p>Investors can use our platform to support the creators they believe in and help them build
+                    sustainable
+                    careers. By using blockchain technology, we are able to create a decentralized platform that gives
+                    investors complete control over how they support their favorite creators.
+                </p>
+            </div>
+        </section>
+
+        <div class="line"></div>
+
+        <section class="twoColumnGrid">
+            <div class="content">
+                <img src="img/inn5.png" alt="decent">
+            </div>
+            <div class="content">
+                <h1>How it works</h1>
+                <p>Our platform is built on the Polygon blockchain, which means that it is completely decentralized and
+                    transparent. This means that creators have complete control over their content and how it is shared
+                    with their audience. It also means that patrons have complete control over how they support their
+                    favorite creators.
+                    <br><br>
+                    Creators can use our platform to crowdfund their creative projects and deliver the finished product
+                    to
+                    their supporters. It's also like a Patreon site, where creators can give their fans early or
+                    exclusive access to their content. Or, if you're a creator looking to monetize your content, you can
+                    sell access to your premium content to your most dedicated fans and followers.
+                    <br><br>
+                    One key feature of our platform is that it is powered by a single minting contract. This means that
+                    all of the creative projects and exclusive unlockable content on the platform are secured and
+                    delivered through this contract. This ensures that the distribution and access to content is fair
+                    and transparent for both creators and patrons.
+                    <br><br>
+                    In addition, the platform uses the darkblock protocol to secure and deliver all of the exclusive
+                    content. This ensures that the content remains accessible only to those who have paid for access,
+                    while also allowing for easy delivery and management of the content. Overall, the combination of the
+                    single minting contract and the darkblock protocol helps to create a seamless and secure experience
+                    for both creators and patrons on the platform.
+                </p>
+            </div>
+        </section>
+
+        <div class="line"></div>
+
+        <section class="twoColumnGrid">
+            <div class="content">
+                <img src="img/inn3.png" alt="decent">
+            </div>
+            <div class="content">
+                <img src="img/inn2.png" alt="decent">
+            </div>
+        </section>
+
+        <div class="line"></div>
+        <section class="twoColumnGrid">
+            <div class="content">
+                <h1>"Technical" Overview</h1>
+                <p class="c3"><span class="c0">At the core of our platform is a super cool shared ERC1155 minting
+                        contract. This
+                        contract lets us create multiple types of tokens within a single contract, which means we can
+                        make all sorts
+                        of NFTs for different parts of the platform. Plus, the ERC1155 standard also lets us transfer a
+                        bunch of
+                        different token types in just one transaction. That&#39;s way more efficient than other NFT
+                        standards!</span></p>
+                <p class="c3"><span class="c0">But wait, there&#39;s more! We also have an API that manages everything
+                        related to
+                        minting from the contract, including all the metadata for each token id. The base_uri of the
+                        minting
+                        contract points to a route in the API, which fetches the right metadata for each id based on the
+                        contract
+                        address, token id, and flags.</span></p>
+                <p class="c3"><span class="c0">Now for the really cool part: our exclusive platform content. We use the
+                        Darkblock
+                        protocol to add unlockable content to NFTs. This protocol encrypts the content and links it to a
+                        specific
+                        NFT or multiple NFTs, so only NFT holders can access the content. Neat, right?</span></p>
+                <p class="c3"><span class="c0">We have four types of NFTs on the platform:</span></p>
+                <ul class="c6 lst-kix_vv48619i3lbe-0 start">
+                    <li class="c3 c4 li-bullet-0"><span class="c0">Profile NFT: this represents a user&#39;s profile on
+                            the
+                            platform. Any user can mint one for free, and minting someone else&#39;s profile means
+                            you&#39;re
+                            following them on the platform. Profile NFTs make it easy to find and follow other users,
+                            and they also
+                            help verify users&#39; identities. The unlimited supply of these NFTs means anyone can
+                            follow as many
+                            users as they want, making it easy to build a community on the platform.</span></li>
+                    <li class="c3 c4 li-bullet-0"><span class="c0">Post NFT: this represents a post to the communal
+                            feed. Like the
+                            profile NFT, these are free to mint and minting a post NFT means you like it. The unlimited
+                            supply of
+                            post NFTs lets users engage with and show support for the content on the platform. Plus, the
+                            ability to
+                            switch between chronological, followed users, or most liked posts feeds lets users customize
+                            their
+                            experience on the platform.</span></li>
+                    <li class="c3 c4 li-bullet-0"><span class="c0">Content Container NFT: this is where creators store
+                            their
+                            exclusive content. The supply of these NFTs can be either unlimited or limited, depending on
+                            the
+                            creator&#39;s settings when they set up the token metadata. Minting a content container NFT
+                            gives you
+                            permanent access to the exclusive content and the ability to deploy access NFTs for that
+                            content. This
+                            lets creators involve their communities in the distribution of their content and lets other
+                            users become
+                            curators on the platform.</span></li>
+                    <li class="c3 c4 li-bullet-0"><span class="c0">Access NFT: this represents mutable access to a
+                            creator&#39;s
+                            exclusive content. Access can be granted on a per-view basis or for a set period of time,
+                            depending on
+                            the creator&#39;s preferences. Minting an access NFT lets you view the exclusive content for
+                            the
+                            agreed-upon time. The proceeds from the sale of access NFTs are shared between the
+                            collector, creator,
+                            and the platform, providing a way for creators to monetize their content and for users to
+                            support their
+                            favorite creators.</span></li>
+                </ul>
+                <p class="c3"><span class="c0">In summary, NFTs on our platform offer a unique and interactive
+                        experience for both
+                        creators and users. Creators can involve their communities in the distribution and promotion of
+                        their
+                        content, and users can show support for their favorite creators and curate their own feeds based
+                        on their
+                        interests. Cool, huh?</span></p>
+                <p class="c1"><span class="c5"></span></p>
+            </div>
+            <div class="content">
+                <img src="img/inn6.png" alt="decent">
+                <img src="img/inn9.png" alt="decent">
+            </div>
+        </section>
+
+        <div class="line"></div>
+        <!-- usecase section; the platform can be used for a wide veriety of things from crowd funding their work and delivering the goods to their patron, patreon type site where creators give their patron early or exclusive access to content to onlyfans type usecase -->
+
+
+
+        <section class="fourColumnGrid">
+            <div class="content">
+                <h1>Team</h1>
+                <p>Our team is a dynamic group of both tech-savvy professionals and creative minds. With a diverse range
+                    of skills and experience in the creative field, we are passionate about using technology to
+                    revolutionize the way creators connect with their audience and build sustainable careers in their
+                    chosen craft. We believe that our platform has the potential to make a big impact in the industry.
+                </p>
+            </div>
+            <div class="content">
+                <h1>Values</h1>
+                <p>Our values are the guiding principles that we use to make decisions and shape our culture. We believe
+                    that our platform has the potential to revolutionize the creative industry, giving creators the
+                    freedom and autonomy they need to succeed in today's digital landscape. Whether you are a seasoned
+                    creator or just starting out, our platform is here to help you connect with your audience and build
+                    a sustainable career as a creative.
+                </p>
+            </div>
+            <div class="content">
+                <h1>Mission</h1>
+                <p>Our mission is to provide a platform where creators can share their work and build sustainable
+                    careers without fear of being demonetized. We believe that our platform has the potential to
+                    revolutionize the creative industry, giving creators the freedom and autonomy they need to succeed
+                    in today's digital landscape. Whether you are a seasoned creator or just starting out, our platform
+                    is here to help you connect with your audience and build a sustainable career as a creative.
+
+                </p>
+            </div>
+
+            <div class="content">
+                <h1>Vision</h1>
+                <p>Our vision is to create a decentralized platform that gives creators complete control over their
+                    content and how it is shared with their audience. By using blockchain technology, we are able to
+                    create a platform that is fair and transparent, giving creators a way to connect with their audience
+                    and monetize their work in a way that is sustainable and rewarding. Join us in our mission to
+                    support and empower all creators.
+                </p>
+            </div>
+        </section>
+        <div class="line"></div>
+
+
+
+    </div>
+
+
+    <script type="text/javascript">
+        // find the button and add a click event listener
+        const button = document.getElementById('signUpButton');
+        button.addEventListener('click', () => {
+            // when the button is clicked, open the modal
+            // go to https://4ng08juw1w2.typeform.com/to/XGJlxn9R to see the form
+            window.open('https://4ng08juw1w2.typeform.com/to/XGJlxn9R', '_blank');
+        });
+    </script>
+
+    <script type="text/javascript">
+        const logoContainer = document.getElementById('logo-generator');
+
+        const generateLogo = () => {
+
+            const numSquaresX = 7;
+            const numSquaresY = 7;
+            const squareSize = 10;
+            // const colors = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","DarkOrange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue", ];
+            const colors = ['#1E1E1E', '#D9D9D9', 'darkgray']
+            const grid = [];
+            for (let i = 0; i < numSquaresX; i++) {
+                grid[i] = [];
+                for (let j = 0; j < numSquaresY; j++) {
+                    grid[i][j] = colors[Math.floor(Math.random() * colors.length)];
+                }
+            }
+            while (true) {
+                const colorCounts = {};
+                for (let i = 0; i < numSquaresX; i++) {
+                    for (let j = 0; j < numSquaresY; j++) {
+                        const color = grid[i][j];
+                        if (colorCounts[color]) {
+                            colorCounts[color]++;
+                        } else {
+                            colorCounts[color] = 1;
+                        }
+                    }
+                }
+
+                const mostCommonColor = Object.keys(colorCounts).sort((a, b) => colorCounts[b] - colorCounts[a])[0];
+
+                for (let i = 0; i < numSquaresX; i++) {
+                    for (let j = 0; j < numSquaresY; j++) {
+                        if (grid[i][j] === mostCommonColor) {
+                            grid[i][j] = 'collapsed';
+                        }
+                    }
+                }
+
+                let allCollapsed = true;
+                for (let i = 0; i < numSquaresX; i++) {
+                    for (let j = 0; j < numSquaresY; j++) {
+                        if (grid[i][j] !== 'collapsed') {
+                            allCollapsed = false;
+                            break;
+                        }
+                    }
+                    if (!allCollapsed) {
+                        break;
+                    }
+                }
+                break;
+            }
+
+            for (let i = 0; i < numSquaresX; i++) {
+                for (let j = 0; j < numSquaresY; j++) {
+                    const square = document.createElement('div');
+                    square.style.width = `${squareSize}px`;
+                    square.style.height = `${squareSize}px`;
+                    square.style.backgroundColor = grid[i][j];
+                    logoContainer.appendChild(square);
+                }
+            }
+        };
+
+        generateLogo();
+    </script>
+
+</body>
 
 </html>
-
-
-
-
-
-
-
-
-
