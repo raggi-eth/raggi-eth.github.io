@@ -39,6 +39,48 @@
             width: 100%;
         }
 
+        .hero {
+            background-image: url("img/6.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            color: rgb(255, 255, 255);
+            margin-top: 20%;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+            padding-bottom: 20px;
+        }
+
+        #signUpButton {
+            background-color: transparent;
+            border: none;
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+            cursor: pointer;
+            margin-left: auto;
+            text-align: center;
+            z-index: 100;
+        }
+
+        /* signup on hover */
+        #signUpButton:hover {
+            color: rgb(216, 216, 216);
+        }
+
+        #heroSection {
+
+            height: 70vh;
+
+        }
+
         #logo-generator {
             display: grid;
             grid-template-columns: repeat(7, 10px);
@@ -46,30 +88,66 @@
             grid-gap: 0px;
         }
 
-        #logo-container {}
+        #headerWrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100%;
+            width: 80vw;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #logo-container {
+            /* this should go to the left */
+
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+            height: fit-content;
+            width: fit-content;
+            left: 0;
+        }
 
         /* make a slight gradient in the headder background */
         #header {
             position: fixed;
-            z-index: 1;
+            z-index: 10;
             display: flex;
             flex-direction: row;
             align-items: center;
             /* justify-content: flex-start; */
             height: fit-content;
-            width: calc(100% - 80px);
-            padding: 40px;
+            width: calc(100%);
+            padding: 25px;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
             background: linear-gradient(90deg, rgba(54, 54, 54, 1) 0%, rgba(54, 54, 54, 1) 100%);
+            overflow: hidden;
+        }
+
+
+
+
+        .singleColumnGrid {
+            /* make each section a 1 column grid */
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            grid-gap: 0px;
+            height: fit-content;
+            width: 80vw;
+            font-family: 'Libre Baskerville', serif;
         }
 
         .twoColumnGrid {
             /* make each section a 2 column grid */
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(2, 1fr);
             grid-template-rows: 1fr;
             grid-gap: 0px;
             height: fit-content;
@@ -80,7 +158,7 @@
         .threeColumnGrid {
             /* make each section a 3 column grid */
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             grid-template-rows: 1fr;
             grid-gap: 0px;
             height: fit-content;
@@ -92,13 +170,37 @@
         .fourColumnGrid {
             /* make each section a 4 column grid */
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-columns: repeat(4, 1fr);
             grid-template-rows: 1fr;
             grid-gap: 0px;
             height: fit-content;
             width: 80vw;
             font-family: 'Libre Baskerville', serif;
 
+        }
+
+        section {
+            display: flex;
+        }
+
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        .left {
+            margin-right: 1rem;
+            text-align: right;
+        }
+
+        .right {
+            margin-left: 1rem;
+        }
+
+        .step {
+            margin-bottom: 1rem;
         }
 
         h1 {
@@ -124,7 +226,7 @@
         }
 
         #spacer {
-            height: 230px;
+            height: 180px;
         }
 
         .line {
@@ -134,15 +236,25 @@
             margin: 50px 0;
         }
 
-        img {
+        .imgContainer {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            justify-content: top;
+            justify-content: right;
             padding-left: 50px;
-            height: auto;
-            width: 80%;
+            height: 100%;
+            width: auto;
+            overflow: hidden;
             padding-bottom: 40px;
+        }
+
+        img {
+            height: 100%;
+            max-width: 100%;
+            object-fit: cover;
+            overflow: hidden;
+            padding-bottom: 40px;
+
         }
 
         li {
@@ -151,22 +263,7 @@
             padding-bottom: 20px;
         }
 
-        #signUpButton {
-            background-color: rgb(54, 54, 54);
-            color: rgb(255, 255, 255);
-            border: none;
-            border-radius: 5px;
-            font-family: 'Didact Gothic', sans-serif;
-            font-size: 25px;
-            color: rgb(255, 255, 255);
-            cursor: pointer;
-            margin-left: auto;
-        }
 
-        /* signup on hover */
-        #signUpButton:hover {
-            color: rgb(216, 216, 216);
-        }
 
         #navBar {
             /* move the navbar to the right */
@@ -197,9 +294,12 @@
                 padding-left: 0;
             }
 
-            img {
+            .imgContainer {
                 padding-left: 0;
                 padding-bottom: 40px;
+                height: 100%;
+                width: auto;
+                overflow: hidden;
             }
 
             .line {
@@ -218,6 +318,29 @@
                 margin-left: 0;
             }
 
+            .hero {
+                background-image: none;
+
+            }
+
+            .hero h1 {
+                font-size: 40px;
+                color: rgb(54, 54, 54);
+                margin-top: 40px;
+            }
+
+            .hero p {
+                font-size: 20px;
+                color: rgb(54, 54, 54);
+                padding-bottom: 20px;
+            }
+
+            #heroSection {
+
+                height: 1vh;
+
+            }
+
         }
     </style>
 </head>
@@ -226,18 +349,23 @@
     <!-- add a headder container for the logo, the logo should be on the left -->
 
     <div id="header">
-        <div id="logo-generator"></div>
-        <div class="logo">decent</div>
-        <div id="navBar">
-            <button id="signUpButton">sign up</button>
+        <div id="headerWrapper">
+            <div id="logo-container">
+                <div id="logo-generator"></div>
+                <div class="logo">decent</div>
+            </div>
+            <div id="navBar">
+                <button id="signUpButton">sign up for</br>early access</button>
+            </div>
         </div>
+
     </div>
+
     <div id="spacer"></div>
     <div id="app">
 
+        <section class="twoColumnGrid hero">
 
-
-        <section class="twoColumnGrid">
             <div class="content">
                 <h1>decent is a platform where creators can share their work and build sustainable careers without
                     fear of being demonetized.</h1>
@@ -246,6 +374,19 @@
                     led to numerous instances of creators being demonetized or censored for arbitrary reasons, leaving
                     them without a reliable income stream or a way to showcase their work.
                 </P>
+                <p>Sign up for early access and be the first to try it out!</p>
+            </div>
+            <div id="heroSection">
+
+            </div>
+
+        </section>
+
+        <div class="line"></div>
+
+        <section class="twoColumnGrid">
+            <div class="content">
+
                 <p>decent aims to provide a solution to these issues by giving creators a way to connect with their
                     audience and monetize their work in a fair and transparent manner. By using blockchain technology,
                     we are able to create a decentralized platform that gives creators complete control over their
@@ -257,8 +398,19 @@
                     a seasoned creator or just starting out, our platform is here to help you connect with your audience
                     and build a sustainable career as a creative.
                 </p>
+
+                <p>The creative industry encompasses art, music, film, and more. It's a key part of our culture and
+                    economy, but it's often controlled by centralized entities that can censor creators and restrict
+                    their income and control. Decent is here to help! We offer a decentralized platform for creators to
+                    monetize their work and connect with their audience in a fair and transparent way. Using blockchain
+                    technology, we give creators complete control over their content and how it's shared. This empowers
+                    them to have more autonomy and build successful careers in the creative industry. Our platform has
+                    the potential to revolutionize the industry by giving creators the tools they need to thrive in the
+                    digital world.</p>
+
+
             </div>
-            <div class="content">
+            <div class="imgContainer">
                 <img src="img/1.png" alt="decent">
             </div>
         </section>
@@ -322,7 +474,7 @@
         <div class="line"></div>
 
         <section class="twoColumnGrid">
-            <div class="content">
+            <div class="imgContainer">
                 <img src="img/5.png" alt="decent">
             </div>
             <div class="content">
@@ -355,11 +507,29 @@
         <div class="line"></div>
 
         <section class="twoColumnGrid">
-            <div class="content">
+            <div class="imgContainer">
                 <img src="img/3.png" alt="decent">
             </div>
-            <div class="content">
+            <div class="imgContainer">
                 <img src="img/2.png" alt="decent">
+            </div>
+        </section>
+        <div class="line"></div>
+        <section style="width: 80vw;">
+            <div class="column left">
+                <div class="step"><h1> Alpha access</h1></div>
+                <div class="step"></div>
+                <div class="step"><h1>Integration with third-party tools</h1></div>
+                <div class="step"></div>
+                <div class="step"><h1>Post-launch support</h1></div>
+            </div>
+            <div class="column right">
+                <div class="step"></div>
+                <div class="step"><h1>Beta testing</h1></div>
+                <div class="step"></div>
+                <div class="step"><h1>Marketing and outreach</h1></div>
+                <div class="step"></div>
+                <div class="step"><h1>Launch</h1></div>
             </div>
         </section>
 
@@ -439,9 +609,9 @@
                         interests. Cool, huh?</span></p>
                 <p class="c1"><span class="c5"></span></p>
             </div>
-            <div class="content">
-                <img src="img/6.png" alt="decent">
+            <div class="imgContainer">
                 <img src="img/9.png" alt="decent">
+                <img src="img/11.png" alt="decent">
             </div>
         </section>
 
