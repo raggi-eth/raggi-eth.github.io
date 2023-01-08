@@ -20,23 +20,12 @@
 
         }
 
-        .logo {
-            font-family: 'Didact Gothic', sans-serif;
-            font-size: 25px;
-            color: rgb(255, 255, 255);
-            /* stick to the bottom of the div */
+        #myVideo {
+            transition: all 2s ease-in-out;
+            position: relative;
+            left: 0;
+            top: 0;
 
-            padding-left: 25px;
-
-        }
-
-        #app {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: fit-content;
-            width: 100%;
         }
 
         .hero {
@@ -58,16 +47,33 @@
             padding-bottom: 20px;
         }
 
+        .logo {
+            font-family: 'Didact Gothic', sans-serif;
+            font-size: 25px;
+            color: rgb(255, 255, 255);
+            /* stick to the bottom of the div */
+
+            padding-left: 25px;
+
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: fit-content;
+            width: 100%;
+        }
+
+
+
         #signUpButton {
             background-color: transparent;
             border: none;
             font-family: 'Didact Gothic', sans-serif;
             font-size: 20px;
             color: rgb(255, 255, 255);
-            cursor: pointer;
-            margin-left: auto;
-            text-align: center;
-            z-index: 100;
         }
 
         /* signup on hover */
@@ -77,7 +83,7 @@
 
         #heroSection {
 
-            height: 70vh;
+            /* height: 70vh; */
 
         }
 
@@ -88,16 +94,7 @@
             grid-gap: 0px;
         }
 
-        #headerWrapper {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-            height: 100%;
-            width: 80vw;
-            margin-left: auto;
-            margin-right: auto;
-        }
+
 
         #logo-container {
             /* this should go to the left */
@@ -115,21 +112,26 @@
         #header {
             position: fixed;
             z-index: 10;
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+
             /* justify-content: flex-start; */
             height: fit-content;
-            width: calc(100%);
             padding: 25px;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, rgba(54, 54, 54, 1) 0%, rgba(54, 54, 54, 1) 100%);
-            overflow: hidden;
+            background: linear-gradient(90deg, rgba(54, 54, 54, 1) 50%, rgb(70, 70, 70) 100%);
+
         }
 
+        #headerWrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 80vw;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
 
 
@@ -179,29 +181,39 @@
 
         }
 
-        section {
+        .roadmapSection {
             display: flex;
+            flex-direction: grid;
+            margin-left: 20vw;
+            width: 80vw;
         }
 
         .column {
             flex: 1;
             display: flex;
             flex-direction: column;
-            width: 100%;
+            max-width: 30vw;
         }
 
         .left {
-            margin-right: 1rem;
-            text-align: right;
+            /* margin-right: 1rem; */
+            padding-right: 20px;
+            text-align: left;
+
         }
 
         .right {
-            margin-left: 1rem;
+            /* margin-left: 1rem; */
+            padding-left: 20px;
+            border-left: 1px solid rgb(54, 54, 54);
+
         }
 
         .step {
             margin-bottom: 1rem;
         }
+
+
 
         h1 {
 
@@ -376,9 +388,7 @@
                 </P>
                 <p>Sign up for early access and be the first to try it out!</p>
             </div>
-            <div id="heroSection">
-
-            </div>
+         
 
         </section>
 
@@ -411,7 +421,9 @@
 
             </div>
             <div class="imgContainer">
-                <img src="img/1.png" alt="decent">
+                <video id="myVideo" src="img/descent_1.mp4"></video>
+                <!-- <img src="img/1.png" alt="decent"> -->
+
             </div>
         </section>
 
@@ -514,22 +526,141 @@
                 <img src="img/2.png" alt="decent">
             </div>
         </section>
-        <div class="line"></div>
-        <section style="width: 80vw;">
+        <div class="line" style="display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 20px;">
+            <h1 style="margin-left: auto; margin-right: auto; padding-left: 33.5px; padding-top: 20px; ">Road-map</h1>
+        </div>
+        <section class="roadmapSection singleColumnGrid" style="width: 80vw;">
+
             <div class="column left">
-                <div class="step"><h1> Alpha access</h1></div>
-                <div class="step"></div>
-                <div class="step"><h1>Integration with third-party tools</h1></div>
-                <div class="step"></div>
-                <div class="step"><h1>Post-launch support</h1></div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+
+                    <h1> Alpha access</h1>
+                    <p>During this phase, a limited number of creators will be invited to try out the platform and
+                        provide feedback on its features and functionality. This will help the team gather valuable
+                        insights and make necessary improvements before the platform is launched to the public.</p>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+
+                <div class="step">
+                    <h1>Third-party tools integration</h1>
+                    <p> In this phase, the team will work on integrating the platform with popular tools and services
+                        that creators use in their workflow, such as editing software, analytics platforms, and payment
+                        processors.</p>
+
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+
+                <div class="step">
+                    <h1>Launch</h1>
+                    <p>After completing the previous steps, the platform will be ready for its public launch. This will
+                        involve making the platform available to all creators and announcing the launch to the media and
+                        the broader public.</p>
+                </div>
+
             </div>
             <div class="column right">
-                <div class="step"></div>
-                <div class="step"><h1>Beta testing</h1></div>
-                <div class="step"></div>
-                <div class="step"><h1>Marketing and outreach</h1></div>
-                <div class="step"></div>
-                <div class="step"><h1>Launch</h1></div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+
+                <div class="step">
+                    <h1>Beta testing</h1>
+                    <p>In this phase, the platform will be made available to a larger group of creators for further
+                        testing and feedback. This will allow the team to continue refining the platform based on user
+                        feedback and fix any remaining bugs or issues.</p>
+
+                </div>
+
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+
+                <div class="step">
+                    <h1>Marketing and outreach</h1>
+                    <p>To ensure a successful launch, the team will need to focus on marketing and outreach efforts.
+                        This may involve creating promotional materials, reaching out to influencers and media outlets,
+                        and building a community of creators who can help spread the word about the platform.</p>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+                <div class="step">
+                    <h1> </h1>
+                </div>
+
+                <div class="step">
+                    <h1>Post-launch support</h1>
+                    <p>Even after the platform is launched, the team will need to continue providing support and
+                        addressing any issues that may arise. This may involve rolling out new features, fixing bugs,
+                        and responding to user feedback.</p>
+                </div>
             </div>
         </section>
 
@@ -557,6 +688,14 @@
                         protocol to add unlockable content to NFTs. This protocol encrypts the content and links it to a
                         specific
                         NFT or multiple NFTs, so only NFT holders can access the content. Neat, right?</span></p>
+                <img src="img/11.png" alt="decent">
+            </div>
+            <div class="imgContainer">
+                <img src="img/9.png" alt="decent">
+
+
+            </div>
+            <div class="content">
                 <p class="c3"><span class="c0">We have four types of NFTs on the platform:</span></p>
                 <ul class="c6 lst-kix_vv48619i3lbe-0 start">
                     <li class="c3 c4 li-bullet-0"><span class="c0">Profile NFT: this represents a user&#39;s profile on
@@ -577,6 +716,20 @@
                             switch between chronological, followed users, or most liked posts feeds lets users customize
                             their
                             experience on the platform.</span></li>
+                </ul>
+                <p class="c3"><span class="c0">In summary, NFTs on our platform offer a unique and interactive
+                        experience for both
+                        creators and users. Creators can involve their communities in the distribution and promotion of
+                        their
+                        content, and users can show support for their favorite creators and curate their own feeds based
+                        on their
+                        interests. Cool, huh?</span></p>
+                <p class="c1"><span class="c5"></span></p>
+            </div>
+            <div class="content">
+                <ul style="padding-top: 8px;">
+                    </br></br></br>
+
                     <li class="c3 c4 li-bullet-0"><span class="c0">Content Container NFT: this is where creators store
                             their
                             exclusive content. The supply of these NFTs can be either unlimited or limited, depending on
@@ -588,6 +741,7 @@
                             lets creators involve their communities in the distribution of their content and lets other
                             users become
                             curators on the platform.</span></li>
+
                     <li class="c3 c4 li-bullet-0"><span class="c0">Access NFT: this represents mutable access to a
                             creator&#39;s
                             exclusive content. Access can be granted on a per-view basis or for a set period of time,
@@ -600,18 +754,6 @@
                             support their
                             favorite creators.</span></li>
                 </ul>
-                <p class="c3"><span class="c0">In summary, NFTs on our platform offer a unique and interactive
-                        experience for both
-                        creators and users. Creators can involve their communities in the distribution and promotion of
-                        their
-                        content, and users can show support for their favorite creators and curate their own feeds based
-                        on their
-                        interests. Cool, huh?</span></p>
-                <p class="c1"><span class="c5"></span></p>
-            </div>
-            <div class="imgContainer">
-                <img src="img/9.png" alt="decent">
-                <img src="img/11.png" alt="decent">
             </div>
         </section>
 
@@ -664,9 +806,33 @@
 
 
     </div>
+    <script>
+         let playing = false;
+        const video = document.getElementById('myVideo');
+        video.addEventListener('click', () => {
+            if (playing) {
+                video.pause();
+                playing = false;
+            } else {
+                video.play();
+                playing = true;
+            }
+            
+        });
+        video.addEventListener('ended', () => {
+            video.currentTime = 0;
+            video.pause();
+        });
 
+        
+
+      
+
+
+    </script>
 
     <script type="text/javascript">
+       
         // find the button and add a click event listener
         const button = document.getElementById('signUpButton');
         button.addEventListener('click', () => {
@@ -677,6 +843,8 @@
     </script>
 
     <script type="text/javascript">
+
+
         const logoContainer = document.getElementById('logo-generator');
 
         const generateLogo = () => {
