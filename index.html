@@ -7,353 +7,8 @@
     <!-- <link rel="preload" href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Libre+Baskerville&display=swap"
     as="font" type="font/woff" crossorigin> -->
     <title>decent</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Libre+Baskerville&display=swap');
-
-        body,
-        html {
-            background-color: rgb(217, 217, 217);
-            max-width: 100%;
-            overflow-x: hidden;
-
-        }
-
-
-        #myVideo {
-            transition: all 2s ease-in-out;
-            position: relative;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: auto;
-
-        }
-
-        .hero {
-            background-image: url("img/6.png");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-            font-family: 'Didact Gothic', sans-serif;
-        }
-
-        .hero h1 {
-            font-size: 40px;
-            color: rgb(255, 255, 255);
-            margin-top: 50px;
-        }
-
-        .hero p {
-            font-size: 17px;
-            color: rgb(255, 255, 255);
-            padding-bottom: 20px;
-        }
-
-        .logo {
-            font-family: 'Didact Gothic', sans-serif;
-            font-size: 25px;
-            color: rgb(255, 255, 255);
-            /* stick to the bottom of the div */
-
-            padding-left: 25px;
-
-        }
-
-        #app {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: fit-content;
-            width: 100%;
-        }
-
-
-
-        #signUpButton {
-            background-color: transparent;
-            border: none;
-            font-family: 'Didact Gothic', sans-serif;
-            font-size: 20px;
-            color: rgb(255, 255, 255);
-        }
-
-        /* signup on hover */
-        #signUpButton:hover {
-            color: rgb(216, 216, 216);
-        }
-
-
-
-        #logo-generator {
-            display: grid;
-            grid-template-columns: repeat(7, 10px);
-            grid-template-rows: repeat(7, 10px);
-            grid-gap: 0px;
-        }
-
-
-
-        #logo-container {
-            /* this should go to the left */
-
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: flex-start;
-            height: fit-content;
-            width: fit-content;
-            left: 0;
-        }
-
-        /* make a slight gradient in the headder background */
-        #header {
-            position: fixed;
-            z-index: 10;
-
-            /* justify-content: flex-start; */
-            height: fit-content;
-            padding: 25px;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(90deg, rgba(54, 54, 54, 1) 50%, rgb(70, 70, 70) 100%);
-
-        }
-
-        #headerWrapper {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            width: 80vw;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-
-
-        .singleColumnGrid {
-            /* make each section a 1 column grid */
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr;
-            grid-gap: 0px;
-            height: fit-content;
-            width: 80vw;
-            font-family: 'Libre Baskerville', serif;
-        }
-
-        .twoColumnGrid {
-            /* make each section a 2 column grid */
-            
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: 1fr;
-            grid-gap: 0px;
-            height: fit-content;
-            width: 80vw;
-            font-family: 'Libre Baskerville', serif;
-        }
-
-        .threeColumnGrid {
-            /* make each section a 3 column grid */
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: 1fr;
-            grid-gap: 0px;
-            height: fit-content;
-            width: 80vw;
-            font-family: 'Libre Baskerville', serif;
-
-        }
-
-        .fourColumnGrid {
-            /* make each section a 4 column grid */
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-template-rows: 1fr;
-            grid-gap: 0px;
-            height: fit-content;
-            width: 80vw;
-            font-family: 'Libre Baskerville', serif;
-
-        }
-
-        .roadmapSection {
-            display: flex;
-            flex-direction: grid;
-            margin-left: 20vw;
-            width: 80vw;
-        }
-
-        .column {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            max-width: 30vw;
-        }
-
-        .left {
-            /* margin-right: 1rem; */
-            padding-right: 20px;
-            text-align: left;
-
-        }
-
-        .right {
-            /* margin-left: 1rem; */
-            padding-left: 20px;
-            border-left: 2px solid rgb(54, 54, 54);
-
-        }
-
-        .step {
-            margin-bottom: 1rem;
-        }
-
-
-
-
-
-        .content {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: top;
-            padding-left: 50px;
-
-
-        }
-
-        #spacer {
-            height: 180px;
-        }
-
-        .line {
-            height: 1px;
-            width: 85vw;
-            background-color: rgb(54, 54, 54);
-            margin: 50px 0;
-        }
-
-        .imgContainer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: right;
-            padding-left: 50px;
-            height: 100%;
-            width: auto;
-            overflow: hidden;
-            padding-bottom: 40px;
-            margin-top: 25px;
-        }
-
-        img {
-            height: 100%;
-            max-width: 100%;
-            object-fit: cover;
-            overflow: hidden;
-            padding-bottom: 40px;
-        }
-
-        video {
-            height: 100%;
-            max-width: 100%;
-            transform-origin: right;
-            object-fit: cover;
-            overflow: hidden;
-            padding-bottom: 40px;
-
-        }
-
-        li {
-            font-size: 15px;
-            color: rgb(54, 54, 54);
-            padding-bottom: 20px;
-        }
-
-
-
-        #navBar {
-            /* move the navbar to the right */
-            margin-left: auto;
-
-
-        }
-
-        /* if the page width goes under 768px change all grid layouts to 1 */
-
-        @media screen and (max-width: 768px) {
-            .twoColumnGrid {
-                grid-template-columns: 1fr;
-                grid-template-rows: 1fr 1fr;
-            }
-
-            .threeColumnGrid {
-                grid-template-columns: 1fr;
-                grid-template-rows: 1fr 1fr 1fr;
-            }
-
-            .fourColumnGrid {
-                grid-template-columns: 1fr;
-                grid-template-rows: 1fr 1fr 1fr 1fr;
-            }
-
-            .content {
-                padding-left: 0;
-            }
-
-            .imgContainer {
-                padding-left: 0;
-                padding-bottom: 40px;
-                height: 100%;
-                width: auto;
-                overflow: hidden;
-            }
-
-            .line {
-                width: 100vw;
-            }
-
-            #logo-generator {
-                display: none;
-            }
-
-            .logo {
-                padding-left: 0;
-            }
-
-            #signUpButton {
-                margin-left: 0;
-            }
-
-            .hero {
-                background-image: none;
-
-            }
-
-            .hero h1 {
-                font-size: 40px;
-                color: rgb(54, 54, 54);
-                margin-top: 40px;
-            }
-
-            .hero p {
-                font-size: 20px;
-                color: rgb(54, 54, 54);
-                padding-bottom: 20px;
-            }
-
-            #heroSection {
-
-                height: 1vh;
-
-            }
-
-        }
-    </style>
+    <!-- import style.css  -->
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -391,7 +46,7 @@
 
         <div class="line"></div>
 
-        <section class="twoColumnGrid" style="align-items: center;">
+        <section class="twoColumnGrid">
             <div class="content">
                 <h1>Liberation</h1>
                 <p>decent aims to provide a solution to these issues by giving creators a way to connect with their
@@ -604,15 +259,15 @@
         <section class="twoColumnGrid">
             <div class="content">
                 <h1>"Technical" Overview</h1>
-                <p class="c3"><span class="c0">At the core of our platform is a super cool shared ERC1155 minting
+                <p class="c3"><span class="c0">At the core of our platform is a shared ERC1155 minting
                         contract. This
-                        contract lets us create multiple types of tokens within a single contract, which means we can
+                        contract is used to create multiple types of tokens within a single contract, which means we can
                         make all sorts
                         of NFTs for different parts of the platform. Plus, the ERC1155 standard also lets us transfer a
                         bunch of
-                        different token types in just one transaction. That&#39;s way more efficient than other NFT
+                        multiple tokens in just one transaction. That&#39;s way more efficient than other NFT
                         standards!</span></p>
-                <p class="c3"><span class="c0">But wait, there&#39;s more! We also have an API that manages everything
+                <p class="c3"><span class="c0">We also have an API that manages everything
                         related to
                         minting from the contract, including all the metadata for each token id. The base_uri of the
                         minting
@@ -624,15 +279,17 @@
                         protocol to add unlockable content to NFTs. This protocol encrypts the content and links it to a
                         specific
                         NFT or multiple NFTs, so only NFT holders can access the content. Neat, right?</span></p>
-                <img src="img/11.png" alt="decent">
+                        <p class="c3"><span class="c0">We have four types of NFTs on the platform:</span></p>
+
+                <!-- <img src="img/11.png" alt="decent"> -->
             </div>
             <div class="imgContainer">
                 <img src="img/9.png" alt="decent">
-
-
+            </div>
+            <div class="imgContainer">
+                <img src="img/11.png" alt="decent">
             </div>
             <div class="content">
-                <p class="c3"><span class="c0">We have four types of NFTs on the platform:</span></p>
                 <ul class="c6 lst-kix_vv48619i3lbe-0 start">
                     <li class="c3 c4 li-bullet-0"><span class="c0">Profile NFT: this represents a user&#39;s profile on
                             the
@@ -652,20 +309,6 @@
                             switch between chronological, followed users, or most liked posts feeds lets users customize
                             their
                             experience on the platform.</span></li>
-                </ul>
-                <p class="c3"><span class="c0">In summary, NFTs on our platform offer a unique and interactive
-                        experience for both
-                        creators and users. Creators can involve their communities in the distribution and promotion of
-                        their
-                        content, and users can show support for their favorite creators and curate their own feeds based
-                        on their
-                        interests. Cool, huh?</span></p>
-                <p class="c1"><span class="c5"></span></p>
-            </div>
-            <div class="content">
-                <ul style="padding-top: 8px;">
-                    </br></br></br>
-
                     <li class="c3 c4 li-bullet-0"><span class="c0">Content Container NFT: this is where creators store
                             their
                             exclusive content. The supply of these NFTs can be either unlimited or limited, depending on
@@ -689,6 +332,14 @@
                             and the platform, providing a way for creators to monetize their content and for users to
                             support their
                             favorite creators.</span></li>
+                </ul>
+                
+            </div>
+            <div class="content">
+                <ul style="padding-top: 8px;">
+                    </br></br></br>
+
+
                 </ul>
             </div>
         </section>
