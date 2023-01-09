@@ -191,7 +191,11 @@ html {
 .right {
     /* margin-left: 1rem; */
     padding-left: 20px;
-    border-left: 2px solid rgb(54, 54, 54);
+    border-left: 2px solid rgb(167, 167, 167);
+    border-bottom: 0px;
+    border-right: 0px;
+    border-top: 0px;
+    border-style: dashed;
 
 }
 
