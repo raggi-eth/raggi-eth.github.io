@@ -4,27 +4,28 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Libre+Baskerville&display=swap"
-        rel="stylesheet">
+    <!-- <link rel="preload" href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Libre+Baskerville&display=swap"
+    as="font" type="font/woff" crossorigin> -->
     <title>decent</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Libre+Baskerville&display=swap');
 
         body,
         html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            width: 100%;
             background-color: rgb(217, 217, 217);
+            max-width: 100%;
+            overflow-x: hidden;
 
         }
+
 
         #myVideo {
             transition: all 2s ease-in-out;
             position: relative;
             left: 0;
             top: 0;
+            height: 100%;
+            width: auto;
 
         }
 
@@ -33,16 +34,17 @@
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
+            font-family: 'Didact Gothic', sans-serif;
         }
 
         .hero h1 {
             font-size: 40px;
             color: rgb(255, 255, 255);
-            margin-top: 20%;
+            margin-top: 50px;
         }
 
         .hero p {
-            font-size: 20px;
+            font-size: 17px;
             color: rgb(255, 255, 255);
             padding-bottom: 20px;
         }
@@ -81,11 +83,7 @@
             color: rgb(216, 216, 216);
         }
 
-        #heroSection {
 
-            /* height: 70vh; */
-
-        }
 
         #logo-generator {
             display: grid;
@@ -148,6 +146,7 @@
 
         .twoColumnGrid {
             /* make each section a 2 column grid */
+            
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: 1fr;
@@ -205,7 +204,7 @@
         .right {
             /* margin-left: 1rem; */
             padding-left: 20px;
-            border-left: 1px solid rgb(54, 54, 54);
+            border-left: 2px solid rgb(54, 54, 54);
 
         }
 
@@ -215,18 +214,7 @@
 
 
 
-        h1 {
 
-            font-size: 20px;
-            color: rgb(54, 54, 54);
-            margin-top: 0;
-        }
-
-        p {
-            font-size: 15px;
-            color: rgb(54, 54, 54);
-            padding-bottom: 20px;
-        }
 
         .content {
             display: flex;
@@ -234,6 +222,7 @@
             align-items: flex-start;
             justify-content: top;
             padding-left: 50px;
+
 
         }
 
@@ -251,18 +240,28 @@
         .imgContainer {
             display: flex;
             flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
             justify-content: right;
             padding-left: 50px;
             height: 100%;
             width: auto;
             overflow: hidden;
             padding-bottom: 40px;
+            margin-top: 25px;
         }
 
         img {
             height: 100%;
             max-width: 100%;
+            object-fit: cover;
+            overflow: hidden;
+            padding-bottom: 40px;
+        }
+
+        video {
+            height: 100%;
+            max-width: 100%;
+            transform-origin: right;
             object-fit: cover;
             overflow: hidden;
             padding-bottom: 40px;
@@ -388,15 +387,13 @@
                 </P>
                 <p>Sign up for early access and be the first to try it out!</p>
             </div>
-         
-
         </section>
 
         <div class="line"></div>
 
-        <section class="twoColumnGrid">
+        <section class="twoColumnGrid" style="align-items: center;">
             <div class="content">
-
+                <h1>Liberation</h1>
                 <p>decent aims to provide a solution to these issues by giving creators a way to connect with their
                     audience and monetize their work in a fair and transparent manner. By using blockchain technology,
                     we are able to create a decentralized platform that gives creators complete control over their
@@ -486,7 +483,7 @@
         <div class="line"></div>
 
         <section class="twoColumnGrid">
-            <div class="imgContainer">
+            <div class="imgContainer" style>
                 <img src="img/5.png" alt="decent">
             </div>
             <div class="content">
@@ -497,8 +494,8 @@
                     favorite creators.
                     <br><br>
                     Creators can use our platform to crowdfund their creative projects and deliver the finished product
-                    to
-                    their supporters. It's also like a Patreon site, where creators can give their fans early or
+                    to their supporters. It can also be used like a Patreon site, where creators can give their fans
+                    early or
                     exclusive access to their content. Or, if you're a creator looking to monetize your content, you can
                     sell access to your premium content to your most dedicated fans and followers.
                     <br><br>
@@ -527,35 +524,25 @@
             </div>
         </section>
         <div class="line" style="display: flex; flex-wrap: wrap; align-items: center; margin-bottom: 20px;">
-            <h1 style="margin-left: auto; margin-right: auto; padding-left: 33.5px; padding-top: 20px; ">Road-map</h1>
+            <h1
+                style="font-family: Libre Baskerville, serif; margin-left: auto; margin-right: auto; padding-left: 30px; padding-top: 20px; color: rgb(54, 54, 54);">
+                Road-map</h1>
         </div>
         <section class="roadmapSection singleColumnGrid" style="width: 80vw;">
 
             <div class="column left">
                 <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
+                    <h1></br></h1>
                 </div>
                 <div class="step">
 
-                    <h1> Alpha access</h1>
+                    <h1>Q1</br></br>Alpha access</h1>
                     <p>During this phase, a limited number of creators will be invited to try out the platform and
                         provide feedback on its features and functionality. This will help the team gather valuable
                         insights and make necessary improvements before the platform is launched to the public.</p>
                 </div>
                 <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
+                    <h1></br></br></br></br></h1>
                 </div>
 
                 <div class="step">
@@ -566,23 +553,11 @@
 
                 </div>
                 <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
+                    <h1></br></br></h1>
                 </div>
 
                 <div class="step">
-                    <h1>Launch</h1>
+                    <h1>Q2</br></br>Launch</h1>
                     <p>After completing the previous steps, the platform will be ready for its public launch. This will
                         involve making the platform available to all creators and announcing the launch to the media and
                         the broader public.</p>
@@ -591,49 +566,19 @@
             </div>
             <div class="column right">
                 <div class="step">
-                    <h1> </h1>
+                    <h1></br></br></br></br></br></br></br></br></br></br></h1>
                 </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
+
 
                 <div class="step">
                     <h1>Beta testing</h1>
                     <p>In this phase, the platform will be made available to a larger group of creators for further
                         testing and feedback. This will allow the team to continue refining the platform based on user
                         feedback and fix any remaining bugs or issues.</p>
-
                 </div>
 
                 <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
+                    <h1></br></br></br></br></h1>
                 </div>
 
                 <div class="step">
@@ -643,16 +588,7 @@
                         and building a community of creators who can help spread the word about the platform.</p>
                 </div>
                 <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
-                </div>
-                <div class="step">
-                    <h1> </h1>
+                    <h1></br></br></br></br></h1>
                 </div>
 
                 <div class="step">
@@ -806,41 +742,6 @@
 
 
     </div>
-    <script>
-         let playing = false;
-        const video = document.getElementById('myVideo');
-        video.addEventListener('click', () => {
-            if (playing) {
-                video.pause();
-                playing = false;
-            } else {
-                video.play();
-                playing = true;
-            }
-            
-        });
-        video.addEventListener('ended', () => {
-            video.currentTime = 0;
-            video.pause();
-        });
-
-        
-
-      
-
-
-    </script>
-
-    <script type="text/javascript">
-       
-        // find the button and add a click event listener
-        const button = document.getElementById('signUpButton');
-        button.addEventListener('click', () => {
-            // when the button is clicked, open the modal
-            // go to https://4ng08juw1w2.typeform.com/to/XGJlxn9R to see the form
-            window.open('https://4ng08juw1w2.typeform.com/to/XGJlxn9R', '_blank');
-        });
-    </script>
 
     <script type="text/javascript">
 
@@ -912,6 +813,44 @@
 
         generateLogo();
     </script>
+
+    <script>
+        let playing = false;
+        const video = document.getElementById('myVideo');
+        video.addEventListener('click', () => {
+            if (playing) {
+                video.pause();
+                playing = false;
+            } else {
+                video.play();
+                playing = true;
+            }
+
+        });
+        video.addEventListener('ended', () => {
+            video.currentTime = 0;
+            video.pause();
+        });
+
+
+
+
+
+
+    </script>
+
+    <script type="text/javascript">
+
+        // find the button and add a click event listener
+        const button = document.getElementById('signUpButton');
+        button.addEventListener('click', () => {
+            // when the button is clicked, open the modal
+            // go to https://4ng08juw1w2.typeform.com/to/XGJlxn9R to see the form
+            window.open('https://4ng08juw1w2.typeform.com/to/XGJlxn9R', '_blank');
+        });
+    </script>
+
+
 
 </body>
 
