@@ -66,6 +66,8 @@ html {
     font-family: 'Didact Gothic', sans-serif;
     font-size: 20px;
     color: rgb(255, 255, 255);
+    cursor: pointer;
+    text-align: right;
 }
 
 /* signup on hover */
