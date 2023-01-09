@@ -1,37 +1,345 @@
-html { 
-    background: url(images/bg.jpg) no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-   }
+@import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Libre+Baskerville&display=swap');
 
-/* html, body {
-    height: 100%;
-}
-
+body,
 html {
-    display: table;
-    margin: auto;
+    background-color: rgb(217, 217, 217);
+    max-width: 100%;
+    overflow-x: hidden;
+
 }
 
-body {
-    display: table-cell;
-    vertical-align: middle;
-}  */
 
-
-  .container {
-    display: 
-    margin: auto;
+#myVideo {
+    transition: all 2s ease-in-out;
     position: relative;
-    overflow: hidden;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: auto;
+
+}
+
+.hero {
+    background-image: url("img/6.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    font-family: 'Didact Gothic', sans-serif;
+}
+
+.hero h1 {
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    margin-top: 50px;
+}
+
+.hero p {
+    font-size: 17px;
+    color: rgb(255, 255, 255);
+    padding-bottom: 20px;
+}
+
+.logo {
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 25px;
+    color: rgb(255, 255, 255);
+    /* stick to the bottom of the div */
+
+    padding-left: 25px;
+
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
     width: 100%;
-    /* padding-top: 80%;  */
-    height: 80vH;
-  }
-  
-  /* Then style the iframe to fit in the container div with full height and width */
-  .responsive-iframe {
-    border: none; height: 512px; width: 100%; padding: 5px;
-  }
+}
+
+
+
+#signUpButton {
+    background-color: transparent;
+    border: none;
+    font-family: 'Didact Gothic', sans-serif;
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+}
+
+/* signup on hover */
+#signUpButton:hover {
+    color: rgb(216, 216, 216);
+}
+
+
+
+#logo-generator {
+    display: grid;
+    grid-template-columns: repeat(7, 10px);
+    grid-template-rows: repeat(7, 10px);
+    grid-gap: 0px;
+}
+
+
+
+#logo-container {
+    /* this should go to the left */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: fit-content;
+    width: fit-content;
+    left: 0;
+}
+
+/* make a slight gradient in the headder background */
+#header {
+    position: fixed;
+    z-index: 10;
+
+    /* justify-content: flex-start; */
+    height: fit-content;
+    padding: 25px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgba(54, 54, 54, 1) 50%, rgb(70, 70, 70) 100%);
+
+}
+
+#headerWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.singleColumnGrid {
+    /* make each section a 1 column grid */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 0px;
+    height: fit-content;
+    width: 80vw;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.twoColumnGrid {
+    /* make each section a 2 column grid */
+    
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 0px;
+    height: fit-content;
+    width: 80vw;
+    font-family: 'Libre Baskerville', serif;
+}
+
+.threeColumnGrid {
+    /* make each section a 3 column grid */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 0px;
+    height: fit-content;
+    width: 80vw;
+    font-family: 'Libre Baskerville', serif;
+
+}
+
+.fourColumnGrid {
+    /* make each section a 4 column grid */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-gap: 0px;
+    height: fit-content;
+    width: 80vw;
+    font-family: 'Libre Baskerville', serif;
+
+}
+
+.roadmapSection {
+    display: flex;
+    flex-direction: grid;
+    margin-left: 20vw;
+    width: 80vw;
+}
+
+.column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 30vw;
+}
+
+.left {
+    /* margin-right: 1rem; */
+    padding-right: 20px;
+    text-align: left;
+
+}
+
+.right {
+    /* margin-left: 1rem; */
+    padding-left: 20px;
+    border-left: 2px solid rgb(54, 54, 54);
+
+}
+
+.step {
+    margin-bottom: 1rem;
+}
+
+
+
+
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: top;
+    padding-left: 50px;
+
+
+}
+
+#spacer {
+    height: 180px;
+}
+
+.line {
+    height: 1px;
+    width: 85vw;
+    background-color: rgb(54, 54, 54);
+    margin: 50px 0;
+}
+
+.imgContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: right;
+    padding-left: 50px;
+    height: 40vw;
+    width: auto;
+    overflow: hidden;
+    padding-bottom: 40px;
+    margin-top: 25px;
+}
+
+img {
+    height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    padding-bottom: 40px;
+}
+
+video {
+    height: 100%;
+    max-width: 100%;
+    transform-origin: right;
+    object-fit: cover;
+    overflow: hidden;
+    padding-bottom: 40px;
+
+}
+
+li {
+    font-size: 15px;
+    color: rgb(54, 54, 54);
+    padding-bottom: 20px;
+}
+
+
+
+#navBar {
+    /* move the navbar to the right */
+    margin-left: auto;
+
+
+}
+
+/* if the page width goes under 768px change all grid layouts to 1 */
+
+@media screen and (max-width: 1024px) {
+    .twoColumnGrid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+
+    .threeColumnGrid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+
+    .fourColumnGrid {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+
+    .content {
+        padding-left: 0;
+    }
+
+    .imgContainer {
+        padding-left: 0;
+        padding-bottom: 40px;
+        height: 100%;
+        width: auto;
+        overflow: hidden;
+    }
+
+    .line {
+        width: 100vw;
+    }
+
+    #logo-generator {
+        display: none;
+    }
+
+    .logo {
+        padding-left: 0;
+    }
+
+    #signUpButton {
+        margin-left: 0;
+    }
+
+    .hero {
+        background-image: none;
+
+    }
+
+    .hero h1 {
+        font-size: 40px;
+        color: rgb(54, 54, 54);
+        margin-top: 40px;
+    }
+
+    .hero p {
+        font-size: 20px;
+        color: rgb(54, 54, 54);
+        padding-bottom: 20px;
+    }
+
+    #heroSection {
+
+        height: 1vh;
+
+    }
+
+}
