@@ -140,7 +140,7 @@ html {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
-    grid-gap: 40px;
+    grid-gap: 80px;
     height: fit-content;
     width: 80vw;
     font-family: 'Libre Baskerville', serif;
@@ -151,7 +151,7 @@ html {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    grid-gap: 40px;
+    grid-gap: 80px;
     height: fit-content;
     width: 80vw;
     font-family: 'Libre Baskerville', serif;
@@ -163,7 +163,7 @@ html {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
-    grid-gap: 40px;
+    grid-gap: 80px;
     height: fit-content;
     width: 80vw;
     font-family: 'Libre Baskerville', serif;
