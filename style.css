@@ -140,7 +140,7 @@ html {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
-    grid-gap: 0px;
+    grid-gap: 40px;
     height: fit-content;
     width: 80vw;
     font-family: 'Libre Baskerville', serif;
@@ -151,7 +151,7 @@ html {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
-    grid-gap: 0px;
+    grid-gap: 40px;
     height: fit-content;
     width: 80vw;
     font-family: 'Libre Baskerville', serif;
@@ -163,7 +163,7 @@ html {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 1fr;
-    grid-gap: 0px;
+    grid-gap: 40px;
     height: fit-content;
     width: 80vw;
     font-family: 'Libre Baskerville', serif;
@@ -203,7 +203,16 @@ html {
 }
 
 
-
+.heroSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Didact Gothic', sans-serif;
+    margin: 50px 0;
+}
 
 
 .content {
@@ -211,7 +220,7 @@ html {
     flex-direction: column;
     align-items: flex-start;
     justify-content: top;
-    padding-left: 50px;
+    /* padding-left: 50px; */
 
 
 }
@@ -231,8 +240,8 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: right;
-    padding-left: 50px;
+    justify-content: center;
+    
     height: 40vw;
     width: auto;
     overflow: hidden;
