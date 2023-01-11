@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+  <script src="js/gsap.min.js"></script>
+  <script src="js/CSSRulePlugin.min.js"></script>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,9 +13,11 @@
 </head>
 
 <body>
-  <div class="container">
+  <div id="container">
     <div id="divContainer"></div>
-    <!-- <input type="range" min="1" max="4096" id="columnsSlider"> -->
+    <input type="range" min="1" max="4096" id="columnsSlider">
+    <!-- <input type="range" min="1" max="4096" id="columnsSlider2"> -->
+
   </div>
   <script type="module" src="app.js"></script>
 </body>

@@ -19,7 +19,7 @@ function convertVideoToSVG(videoUrl) {
         div.style.alignItems = 'center';
         div.style.animationDelay = j * i + 'ms';
         div.style.animationName = 'scale-animation';
-        div.style.animationDuration = '2s';
+        div.style.animationDuration = '3s';
         div.style.animationIterationCount = 'infinite';
         div.style.animationTimingFunction = 'ease-in-out';
         container.appendChild(div);
@@ -65,7 +65,7 @@ function convertVideoToSVG(videoUrl) {
         }
         requestAnimationFrame(updateDivs);
       }
-      updateDivs();
+
       updateDivs(); // Start the loop after two seconds
       document.body.appendChild(canvas);
     };
@@ -74,9 +74,12 @@ function convertVideoToSVG(videoUrl) {
       video.loop = false;
       video.play();
       //schedule the first animation transition
-      timer = setTimeout(updateAnimation, animationStates[currentState].duration);
+      startTime = Date.now();
+      animate(startTime);
     }
-    startVideo();
+    //wait for 100ms before starting the video
+    setTimeout(startVideo, 10);
+
 
 
   });
@@ -85,79 +88,155 @@ function convertVideoToSVG(videoUrl) {
 // testing 
 let animationStates = [
   {
-    columns: 44,
-    duration: 10800,
+    columns: 22,
+    transitionDuration: 2000,
+    TriggerTime: 2000,
     next: 1
   },
   {
-    columns: 55,
-    duration: 6000,
+    columns: 44,
+    transitionDuration: 1000,
+    TriggerTime: 8000,
     next: 2
   },
   {
-    columns: 66,
-    duration: 10800,
+    columns: 88,
+    transitionDuration: 3000,
+    TriggerTime: 12000,
     next: 3
   },
   {
-    columns: 77,
-    duration: 6000,
+    columns: 110,
+    transitionDuration: 2000,
+    TriggerTime: 18000,
     next: 4
   },
   {
-    columns: 88,
-    duration: 10800,
+    columns: 154,
+    transitionDuration: 3000,
+    TriggerTime: 26000,
     next: 5
   },
   {
-    columns: 99,
-    duration: 6000,
+    columns: 176,
+    transitionDuration: 3000,
+    TriggerTime: 32000,
     next: 6
   },
   {
-    columns: 110,
-    duration: 10800,
+    columns: 198,
+    transitionDuration: 3000,
+    TriggerTime: 45000,
     next: 7
   },
   {
-    columns: 121,
-    duration: 6000,
+    columns: 220,
+    transitionDuration: 3000,
+    TriggerTime: 50000,
     next: 8
   },
   {
-    columns: 132,
-    duration: 10800,
+    columns: 242,
+    transitionDuration: 3000,
+    TriggerTime: 60000,
     next: 9
   },
   {
-    columns: 143,
-    duration: 6000,
+    columns: 264,
+    transitionDuration: 3000,
+    TriggerTime: 63000,
     next: 0
   }
 ];
 
 let currentState = 0;
-let transitionDuration = 2;
 let timer;
+let startTime;
 
-function updateAnimation() {
-  // update the number of columns and schedule the next animation
-  gsap.to(divContainer, {
-    duration: transitionDuration,
-    onUpdate: function () {
-      divContainer.style.setProperty('--columns', `repeat(${animationStates[currentState].columns}, 1fr)`);
-      document.getElementById("divContainer").style.marginLeft = (44 - animationStates[currentState].columns) * 12 + "px";
-      // while the value is 44 or less and decreasing, div should move up by 12px for each column
-      if (animationStates[currentState].columns <= 44) {
-        document.getElementById("divContainer").style.marginTop = (44 - animationStates[currentState].columns) * -24 + "px";
-      }
-    },
-    onComplete: function () {
-      currentState = animationStates[currentState].next;
-      timer = setTimeout(updateAnimation, animationStates[currentState].duration);
-    }
-  });
+function animate() {
+
+  let currentTime = Date.now()
+  let elapsedTime = currentTime - startTime;
+  console.log(elapsedTime)
+  // let seconds = Math.floor(elapsedTime / 1000);
+
+  // get the current state
+  let state = animationStates[currentState];
+  if (currentState.next === 0) return;
+  // compare the current time with the trigger time of the current state
+  if (elapsedTime > state.TriggerTime) {
+    console.log("tirred")
+    // if the current time is greater than the trigger time, trigger the animation
+    triggerAnimation(state);
+    // set the current state to the next state
+    currentState = state.next;
+  }
+  requestAnimationFrame(animate);
 }
+
+function triggerAnimation(state,) {
+  // get the container element
+  let container = document.getElementById('divContainer');
+  // get the current number of columns --columns: repeat(<this value>, 1fr);
+  let currentColumns = window.getComputedStyle(container).gridTemplateColumns.split(' ').length;
+  let targetColumns = state.columns;
+  let increment = 1;
+  let incementedColumns = currentColumns;
+
+  if (currentColumns > targetColumns) {
+    increment = -1;
+  }
+  // we will use a timer to increment the number of columns
+  let startTime;
+
+  function animate() {
+    // calculate the time elapsed since the animation began
+    const timeElapsed = Date.now() - startTime;
+    // calculate the progress of the animation as a value between 0 and 1
+    const progress = timeElapsed / state.transitionDuration;
+    // if the progress is greater than 1, the animation is complete, so clear the interval
+    if (progress >= 1) {
+      clearInterval(timer);
+      return;
+    }
+    // calculate the eased transition value using the easeInOutQuad function
+    let easedProgress;
+    if (increment > 0) {
+      easedProgress = easeInOutQuad(progress);
+    } else {
+      easedProgress = 1 - easeInOutQuad(1 - progress);
+    }
+    // use the eased transition value to interpolate the number of columns
+    const incementedColumns = currentColumns + (targetColumns - currentColumns) * easedProgress;
+    container.style.gridTemplateColumns = 'repeat(' + Math.round(incementedColumns) + ', 1fr)';
+    // document.getElementById("divContainer").style.marginLeft = (44 - incementedColumns) * 12 + "px";
+    // if (incementedColumns <= 44) {
+    //   document.getElementById("divContainer").style.marginTop = (44 - incementedColumns) * -24 + "px";
+    // }
+  }
+  // start the animation by setting the start time and starting the interval
+  startTime = Date.now();
+  timer = setInterval(animate, 1000 / 60);
+}
+
+
+
+function easeInOutQuad(t) {
+  return t < .5 ? (1 - Math.sqrt(1 - Math.pow(2 * t, 2))) / 2 : (Math.sqrt(1 - Math.pow(-2 * t + 2, 2)) + 1) / 2
+  // return t === 0 ? 0 : Math.pow(2, 10 * (t - 1))
+  // return t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
+  // return t === 0 ? 0 : t === 1 ? 1 : t < .5 ? Math.pow(2, 20 * t - 10) / 2 : (2 - Math.pow(2, -20 * t + 10)) / 2
+  // return 1 - Math.sqrt(1 - (t * t))
+  // return Math.sqrt(1 - Math.pow(t - 1, 2))
+  // return t < .5 ? (1 - Math.sqrt(1 - Math.pow(2 * t, 2))) / 2 : (Math.sqrt(1 - Math.pow(-2 * t + 2, 2)) + 1) / 2
+  // return t === 0 ? 0 : t === 1 ? 1 : -Math.pow(2, 10 * t - 10) * Math.sin((t * 10 - 10.75) * (2 * Math.PI) / 3)
+  // return t === 0 ? 0 : t === 1 ? 1 : Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * (2 * Math.PI) / 3) + 1
+  // return t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
+  // return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t
+  // return t < .5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t
+  // return t < .5 ? 16 * t * t * t * t * t : 1 + 16 * (--t) * t * t * t * t
+}
+
 
 // testing end
 
@@ -192,24 +271,22 @@ button.addEventListener('click', async function () {
   convertVideoToSVG('https://nftstorage.link/ipfs/bafybeie4jrftpqz2jhpkfuqtnrowrezm4whrpsnzhw4cmwrwdpli7ytgwa');
 });
 
-// var slider = document.getElementById("columnsSlider");
-// // Update the grid when the slider value changes
-// // make it a log scale from 0 to 4096
-// slider.max = 4096;
-// slider.min = 0;
-// slider.value = 44;
-// slider.step = 11;
+var slider = document.getElementById("columnsSlider");
 
-// slider.oninput = function () {
-//   console.log(this.value);
-//   if (this.value == 0) {
-//     this.value = 1;
-//   }
-//   document.getElementById("divContainer").style.gridTemplateColumns = "repeat(" + this.value + ", 1fr)";
-//   // move the div left as the number of columns increases to keep the grid centered in the window: when the number of columns is 1, the grid is centered, when the number of columns is higher then 44 it starts to grow to the right until then it should move slightly to the left. after 44 is should move by the width of a column
-//   document.getElementById("divContainer").style.marginLeft = (44 - this.value) * 12 + "px";
-//   // while the value is 44 or less and decreasing, div should move up by 12px for each column
-//   if (this.value <= 44) {
-//     document.getElementById("divContainer").style.marginTop = (44 - this.value) * -24 + "px";
-//   }
-// } 
+// Update the grid when the slider value changes
+// make it a log scale from 0 to 4096
+slider.max = 200;
+slider.min = 1;
+slider.value = 100;
+slider.step = 0.5;
+
+
+slider.oninput = function () {
+  console.log(this.value);
+  if (this.value == 0) {
+    this.value = 1;
+  }
+  document.getElementById("divContainer").style.scale = this.value / 100;
+  
+} 
+

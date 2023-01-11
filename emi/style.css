@@ -1,17 +1,20 @@
 html,
 body {
-  /* center items in the body  */
-  margin: 0;
+  /* center the div in the body horizontaly and verticaly  */
+ 
+
+  width: 100%;
+ 
   height: 100%;
-  overflow: hidden;
+  /* set the background color of the body */
+  
   background-color: rgb(0, 0, 0);
 }
 
-#svgContainer {
-  margin-right: auto;
-  margin-left: auto;
-  width: auto;
-  height: 50vh
+canvas {
+  /* I dont want the canvas to be visable or to change the layout of the page */
+  display: none;
+
 }
 
 #divContainer {
@@ -19,23 +22,38 @@ body {
   --columns: repeat(44, 1fr);
   /* initial number of columns */
   grid-template-columns: var(--columns);
-  width: 528px;
+  width: fit-content;
   height: 528px;
-  transition: grid-template-columns 2s ease-in-out;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  object-position: center;
+  /* add a gap between the columns and rows */
+  grid-gap: .2px;
+  /* center the grid */
+  place-items: center;
+  align-items: center;
+  
+  
 }
 
-.container {
+#container {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  width: 100%;
+  width: fit-content;
   height: 100%;
   place-items: center;
-  overflow: hidden;
+  align-items: center;
+  scale: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #divContainer div {
-  box-sizing: border-box;
-  border: 1px solid transparent;
+  
 }
 
 svg {
@@ -65,12 +83,11 @@ svg {
   opacity: 0.7;
   -webkit-transition: .2s;
   transition: opacity .2s;
-  /* keep it close to the bottom of the page */
   position: absolute;
   bottom: 50px;
-
-
+  margin-top: 10px; ;
 }
+
 
 input[type="range"] {
   width: 100%;
