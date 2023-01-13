@@ -270,29 +270,25 @@ let scale;
 let columns;
 
 var slider = document.getElementById("columnsSlider");
-slider.max = 200;
+slider.max = 500;
 slider.min = 1;
 slider.value = 100;
 slider.step = 0.5;
 slider.oninput = function () {
   console.log(this.value);
-  if (this.value == 0) {
-    this.value = 1;
-  }
+  
   document.getElementById("divContainer").style.scale = this.value / 100;
   scale = this.value / 100;
 
 }
 var slider2 = document.getElementById("columnsSlider2");
-slider2.max = 40;
+slider2.max = 1000;
 slider2.min = 0;
 slider2.value = 0;
 slider2.step = 0.1;
 slider2.oninput = function () {
   console.log(this.value);
-  if (this.value == 0) {
-    this.value = 1;
-  }
+  
   document.getElementById("divContainer").style.rowGap = this.value + "px";
   rowGap = this.value;
 
@@ -305,16 +301,14 @@ slider3.value = 44;
 slider3.step = 1;
 slider3.oninput = function () {
   console.log(this.value);
-  if (this.value == 0) {
-    this.value = 1;
-  }
+ 
   document.getElementById("divContainer").style.gridTemplateColumns = 'repeat(' + this.value + ', 1fr)';
   columns = this.value;
 
 }
 
 var slider4 = document.getElementById("columnsSlider4");
-slider4.max = 40;
+slider4.max = 1000;
 slider4.min = 0;
 slider4.value = 0;
 slider4.step = .1;
@@ -341,15 +335,13 @@ document.getElementById("sliderContainer").appendChild(sliderInfoDisplay);
 
 let scaleAnimation = 1;
 var scaleAnimationSlider = document.getElementById("scaleAnimationSlider");
-scaleAnimationSlider.max = 4;
+scaleAnimationSlider.max = 100;
 scaleAnimationSlider.min = 0;
 scaleAnimationSlider.value = 1;
 scaleAnimationSlider.step = 0.01;
 scaleAnimationSlider.oninput = function () {
   console.log(this.value);
-  if (this.value == 0) {
-    this.value = 1;
-  }
+  
   scaleAnimation = this.value;
   document.documentElement.style.setProperty('--scaleAnimation', this.value);
 }

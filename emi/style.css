@@ -75,7 +75,7 @@ svg {
   }
 }
 #sliderContainer{
-  position: absolute; width: 600px; bottom: 0; display: grid; grid-template-columns: repeat(1, 1fr); margin-left: 40px; margin-bottom: 20px; color: #d3d3d3;
+  position: absolute; width: 150px; bottom: 0; display: grid; grid-template-columns: repeat(1, 1fr); margin-left: 40px; margin-bottom: 20px; color: #d3d3d3;
 }
 .Slider {
   width: 100%;
