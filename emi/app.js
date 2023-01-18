@@ -12,8 +12,8 @@ function removeClickListeners() {
 let handleClick = function (e) {
   removeClickListeners();
   // convertVideoToSVG('https://nftstorage.link/ipfs/bafybeie4jrftpqz2jhpkfuqtnrowrezm4whrpsnzhw4cmwrwdpli7ytgwa' );
-  // convertVideoToSVG('https://nftstorage.link/ipfs/bafybeidykexajzvtx5ptscv6ehutikrlv7u5b24cr5vhdxsoullenuokea')
-  convertVideoToSVG('https://nftstorage.link/ipfs/bafybeifigcc6xv2wq6mzxmdroas7h2f5o5dihd5v3oz6wfyzcskhwpvhk4')
+  convertVideoToSVG('https://nftstorage.link/ipfs/bafybeidykexajzvtx5ptscv6ehutikrlv7u5b24cr5vhdxsoullenuokea')
+  // convertVideoToSVG('https://nftstorage.link/ipfs/bafybeifigcc6xv2wq6mzxmdroas7h2f5o5dihd5v3oz6wfyzcskhwpvhk4')
 
 
 }
@@ -22,8 +22,8 @@ function createDivs() {
   var container = document.getElementById('divContainer');
 
   // Create the grid of divs
-  for (var i = 0; i < 22 ; i++) {
-    for (var j = 0; j < 22; j++) {
+  for (var i = 0; i < 44 ; i++) {
+    for (var j = 0; j < 44; j++) {
       var div = document.createElement('div');
       // give each div the same class name
       div.className = 'block';
