@@ -12,7 +12,8 @@ function removeClickListeners() {
 let handleClick = function (e) {
   removeClickListeners();
   // convertVideoToSVG('https://nftstorage.link/ipfs/bafybeie4jrftpqz2jhpkfuqtnrowrezm4whrpsnzhw4cmwrwdpli7ytgwa' );
-  convertVideoToSVG('https://nftstorage.link/ipfs/bafybeidykexajzvtx5ptscv6ehutikrlv7u5b24cr5vhdxsoullenuokea')
+  // convertVideoToSVG('https://nftstorage.link/ipfs/bafybeidykexajzvtx5ptscv6ehutikrlv7u5b24cr5vhdxsoullenuokea')
+  convertVideoToSVG('https://nftstorage.link/ipfs/bafybeifigcc6xv2wq6mzxmdroas7h2f5o5dihd5v3oz6wfyzcskhwpvhk4')
 
 
 }
@@ -21,8 +22,8 @@ function createDivs() {
   var container = document.getElementById('divContainer');
 
   // Create the grid of divs
-  for (var i = 0; i < 44; i++) {
-    for (var j = 0; j < 44; j++) {
+  for (var i = 0; i < 22 ; i++) {
+    for (var j = 0; j < 22; j++) {
       var div = document.createElement('div');
       // give each div the same class name
       div.className = 'block';
@@ -68,7 +69,7 @@ function convertVideoToSVG(videoUrl) {
       let lastFrame;
       function updateDivs() {
         let currentTimestamp = Date.now();
-        if (!lastFrame || currentTimestamp - lastFrame > (1000 / 24)) {
+        if (!lastFrame || currentTimestamp - lastFrame > (1000 / 12)) {
           lastFrame = currentTimestamp;
           //process the video frame
           // Draw the current frame of the video to the canvas
@@ -114,6 +115,89 @@ function convertVideoToSVG(videoUrl) {
 // testing 
 
 
+let animationStates44 = [
+  {
+    transitionDuration: 5000,
+    TriggerTime: 1000,
+    next: 1,
+    scale: .7,
+    rowGap: 0,
+    columnGap: 10,
+    columns: 1353,
+    scaleAnimation: 1
+  },
+  {
+    transitionDuration: 10000,
+    TriggerTime: 0,
+    next: 2,
+    scale: 0.3,
+    rowGap: 50,
+    columnGap: 20,
+    columns: 88,
+    scaleAnimation: 0.5
+  },
+  {
+    transitionDuration: 2000,
+    TriggerTime: 6500,
+    next: 2,
+    scale: 0.2,
+    rowGap: 0,
+    columnGap: 50,
+    columns: 188,
+    scaleAnimation: 1
+  },
+  {
+    transitionDuration: 2000,
+    TriggerTime: 0,
+    next: 2,
+    scale: 0.3,
+    rowGap: 20,
+    columnGap: 20,
+    columns: 44,
+    scaleAnimation: 1.43
+  },
+  {
+    transitionDuration: 10000,
+    TriggerTime: 0,
+    next: 3,
+    scale: 0.66,
+    rowGap: 0,
+    columnGap: 0,
+    columns: 44,
+    scaleAnimation: 1.43
+  },
+  {
+    transitionDuration: 3000,
+    TriggerTime: 10000,
+    next: 4,
+    scale: 0.33,
+    rowGap: 7,
+    columnGap: 32,
+    columns: 22,
+    scaleAnimation: 4
+  },
+  {
+    transitionDuration: 10000,
+    TriggerTime: 10000,
+    next: 5,
+    scale: 0.66,
+    rowGap: 20,
+    columnGap: 3,
+    columns: 88,
+    scaleAnimation: 3
+  },
+  {
+    transitionDuration: 5000,
+    TriggerTime: 100,
+    next: 6,
+    scale: 0.66,
+    rowGap: 15,
+    columnGap: 0,
+    columns: 110,
+    scaleAnimation: 3
+  }
+];
+
 let animationStates = [
   {
     transitionDuration: 5000,
@@ -137,16 +221,16 @@ let animationStates = [
   },
   {
     transitionDuration: 2000,
-    TriggerTime: 7500,
+    TriggerTime: 6500,
     next: 2,
     scale: 0.2,
-    rowGap: 40,
-    columnGap: 20,
-    columns: 88,
+    rowGap: 0,
+    columnGap: 50,
+    columns: 188,
     scaleAnimation: 1
   },
   {
-    transitionDuration: 1500,
+    transitionDuration: 2000,
     TriggerTime: 0,
     next: 2,
     scale: 0.3,
@@ -259,7 +343,7 @@ function triggerAnimation(state) {
   let currentScaleAnimation = parseFloat(window.getComputedStyle(document.documentElement).getPropertyValue("--scaleAnimation"));
 
 
-  let targetColumns = state.columns;
+  let targetColumns = (state.columns / 2);
   let targetScale = state.scale;
   let targetRowGap = state.rowGap;
   let targetColumnGap = state.columnGap;
@@ -337,8 +421,9 @@ function easeInOutQuad(t) {
   //  return t === 0 ? 0 : t === 1 ? 1 : Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * (2 * Math.PI) / 3) + 1
   // return t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
   // return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t
+  //smoothstep
   return t < .5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t
-  // return t < .5 ? 16 * t * t * t * t * t : 1 + 16 * (--t) * t * t * t * t
+
 }
 
 
