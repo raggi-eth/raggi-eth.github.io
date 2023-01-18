@@ -3,31 +3,56 @@ function getRandomDelay() {
   return Math.random() * 6 + 's';
 }
 
+function removeClickListeners() {
+  container.querySelectorAll('.block').forEach(function (div) {
+    div.removeEventListener('click', handleClick);
+  });
+}
+
+let handleClick = function (e) {
+  removeClickListeners();
+  // convertVideoToSVG('https://nftstorage.link/ipfs/bafybeie4jrftpqz2jhpkfuqtnrowrezm4whrpsnzhw4cmwrwdpli7ytgwa' );
+  convertVideoToSVG('https://nftstorage.link/ipfs/bafybeidykexajzvtx5ptscv6ehutikrlv7u5b24cr5vhdxsoullenuokea')
+
+
+}
+
+function createDivs() {
+  var container = document.getElementById('divContainer');
+
+  // Create the grid of divs
+  for (var i = 0; i < 44; i++) {
+    for (var j = 0; j < 44; j++) {
+      var div = document.createElement('div');
+      // give each div the same class name
+      div.className = 'block';
+      div.style.animationDelay = j * i + 'ms';
+      div.style.animationName = 'scale-animation';
+      div.style.animationDuration = '3s';
+      div.style.animationIterationCount = 'infinite';
+      div.style.animationTimingFunction = 'ease-in-out';
+      container.appendChild(div);
+      div.addEventListener('click', handleClick);
+      div.addEventListener('mouseenter', function () {
+        this.classList.add('mouse-over');
+      });
+      div.addEventListener('mouseleave', function () {
+        this.classList.remove('mouse-over');
+      });
+    }
+  }
+}
+
 function convertVideoToSVG(videoUrl) {
+
+
+  // TypeError: 'caller', 'callee', and 'arguments' properties may not be accessed on strict mode functions or the arguments objects for calls to them
+  // container.querySelectorAll('block').forEach(function (div) {
+  //   div.removeEventListener('click', arguments.callee);
+  // });
   return new Promise(function (resolve, reject) {
     // Create a container element for the grid of divs
-    var container = document.getElementById('divContainer');
 
-    // Create the grid of divs
-    for (var i = 0; i < 44; i++) {
-      for (var j = 0; j < 44; j++) {
-        var div = document.createElement('block');
-        div.style.width = '12px';
-        div.style.height = '12px';
-        div.style.display = 'flex';
-        div.style.justifyContent = 'center';
-        div.style.alignItems = 'center';
-        div.style.display = 'flex';
-        div.style.scale = '1.2';
-        div.style.animationDelay = j * i + 'ms';
-        div.style.animationName = 'scale-animation';
-        div.style.animationDuration = '3s';
-        div.style.animationIterationCount = 'infinite';
-        div.style.animationTimingFunction = 'ease-in-out';
-        container.appendChild(div);
-      }
-
-    }
     // Create a video element
     var video = document.createElement('video');
     video.src = videoUrl;
@@ -79,7 +104,6 @@ function convertVideoToSVG(videoUrl) {
       startTime = Date.now();
       animate(startTime);
     }
-    //wait for 100ms before starting the video
     setTimeout(startVideo, 10);
 
 
@@ -92,115 +116,184 @@ function convertVideoToSVG(videoUrl) {
 
 let animationStates = [
   {
-    columns: 412,
-    transitionDuration: 1000,
-    TriggerTime: 2000,
-    next: 1
+    transitionDuration: 5000,
+    TriggerTime: 1000,
+    next: 1,
+    scale: .7,
+    rowGap: 0,
+    columnGap: 10,
+    columns: 1353,
+    scaleAnimation: 1
   },
   {
-    columns: 44,
+    transitionDuration: 10000,
+    TriggerTime: 0,
+    next: 2,
+    scale: 0.3,
+    rowGap: 50,
+    columnGap: 20,
+    columns: 88,
+    scaleAnimation: 0.5
+  },
+  {
     transitionDuration: 2000,
-    TriggerTime: 8000,
-    next: 2
+    TriggerTime: 7500,
+    next: 2,
+    scale: 0.2,
+    rowGap: 40,
+    columnGap: 20,
+    columns: 88,
+    scaleAnimation: 1
   },
   {
+    transitionDuration: 1500,
+    TriggerTime: 0,
+    next: 2,
+    scale: 0.3,
+    rowGap: 20,
+    columnGap: 20,
     columns: 44,
-    transitionDuration: 3000,
-    TriggerTime: 12000,
-    next: 3
+    scaleAnimation: 1.43
   },
   {
+    transitionDuration: 10000,
+    TriggerTime: 0,
+    next: 3,
+    scale: 0.66,
+    rowGap: 0,
+    columnGap: 0,
+    columns: 44,
+    scaleAnimation: 1.43
+  },
+  {
+    transitionDuration: 3000,
+    TriggerTime: 10000,
+    next: 4,
+    scale: 0.33,
+    rowGap: 7,
+    columnGap: 32,
+    columns: 22,
+    scaleAnimation: 4
+  },
+  {
+    transitionDuration: 10000,
+    TriggerTime: 10000,
+    next: 5,
+    scale: 0.66,
+    rowGap: 20,
+    columnGap: 3,
+    columns: 88,
+    scaleAnimation: 3
+  },
+  {
+    transitionDuration: 5000,
+    TriggerTime: 100,
+    next: 6,
+    scale: 0.66,
+    rowGap: 15,
+    columnGap: 0,
     columns: 110,
-    transitionDuration: 2000,
-    TriggerTime: 18000,
-    next: 4
-  },
-  {
-    columns: 4094,
-    transitionDuration: 3000,
-    TriggerTime: 26000,
-    next: 5
-  },
-  {
-    columns: 176,
-    transitionDuration: 3000,
-    TriggerTime: 32000,
-    next: 6
-  },
-  {
-    columns: 198,
-    transitionDuration: 3000,
-    TriggerTime: 45000,
-    next: 7
-  },
-  {
-    columns: 220,
-    transitionDuration: 3000,
-    TriggerTime: 50000,
-    next: 8
-  },
-  {
-    columns: 242,
-    transitionDuration: 3000,
-    TriggerTime: 60000,
-    next: 9
-  },
-  {
-    columns: 264,
-    transitionDuration: 3000,
-    TriggerTime: 63000,
-    next: 0
+    scaleAnimation: 3
   }
 ];
 
 let currentState = 0;
 let timer;
 let startTime;
+let lastAnimationEndTime = 0;
+let elapsedTime;
+// animation states
+let animating = false;
+let animationStartTime = 0;
+let animationEndTime = 0;
+let animationDuration = 0;
+
+
+
+
 
 function animate() {
-  let currentTime = Date.now()
-  let elapsedTime = currentTime - startTime;
-  // let seconds = Math.floor(elapsedTime / 1000);
 
+  let currentTime = Date.now()
+  elapsedTime = currentTime - startTime;
+  // let seconds = Math.floor(elapsedTime / 1000);
+  div.innerHTML = 'State: ' + currentState + '<br>Elapsed Time: ' + elapsedTime;
   // get the current state
   let state = animationStates[currentState];
-  if (currentState.next === 0) return;
+  if (!animating) {
   // compare the current time with the trigger time of the current state
-  if (elapsedTime > state.TriggerTime) {
+  if (elapsedTime >= lastAnimationEndTime + state.TriggerTime) {
     console.log("triggered")
     // if the current time is greater than the trigger time, trigger the animation
     triggerAnimation(state);
+    animating = true;
+    animationStartTime = currentTime - startTime;
     // set the current state to the next state
-    currentState = state.next;
+    if (currentState < animationStates.length - 1) {
+    currentState++;
+    } else {
+    currentState = 0;
+    }
+    
+    // set lastAnimationEndTime to to the current time + the transition duration
+    //
+    // lastAnimationEndTime = elapsedTime + state.transitionDuration;
+    //
+    // populate the info div with the current state and the elapsed time
+    div.innerHTML = 'State: ' + currentState + '<br>Elapsed Time: ' + elapsedTime;
+
   }
+}
   requestAnimationFrame(animate);
 }
 
-function triggerAnimation(state,) {
+const container = document.getElementById('divContainer');
 
+function triggerAnimation(state) {
   if (!animateOn) return;
 
-  // get the container element
-  let container = document.getElementById('divContainer');
-  // get the current number of columns --columns: repeat(<this value>, 1fr);
   let currentColumns = window.getComputedStyle(container).gridTemplateColumns.split(' ').length;
+  let currentScale = parseFloat(window.getComputedStyle(container).scale);
+  let currentRowGap = parseFloat(window.getComputedStyle(container).rowGap);
+  let currentColumnGap = parseFloat(window.getComputedStyle(container).columnGap);
+  let currentScaleAnimation = parseFloat(window.getComputedStyle(document.documentElement).getPropertyValue("--scaleAnimation"));
+
+
   let targetColumns = state.columns;
-  let increment = 1;
+  let targetScale = state.scale;
+  let targetRowGap = state.rowGap;
+  let targetColumnGap = state.columnGap;
+  let targetScaleAnimation = state.scaleAnimation;
+  let increment = 0.5;
   let incementedColumns = currentColumns;
+  let incementedScale = currentScale;
+  let incementedRowGap = currentRowGap;
+  let incementedColumnGap = currentColumnGap;
+  let incementedScaleAnimation = currentScaleAnimation;
 
   if (currentColumns > targetColumns) {
-    increment = -1;
+    increment = -0.5;
   }
   // we will use a timer to increment the number of columns
-  let startTime;
+  let aniStartTime;
 
   function animate() {
     // calculate the time elapsed since the animation began
-    const timeElapsed = Date.now() - startTime;
+    const timeElapsed = Date.now() - aniStartTime;
     // calculate the progress of the animation as a value between 0 and 1
     const progress = timeElapsed / state.transitionDuration;
     // if the progress is greater than 1, the animation is complete, so clear the interval
+    if (progress > 0.49 && progress < 0.51) {
+      document.documentElement.style.setProperty('--scaleAnimation', targetScaleAnimation);
+    }
     if (progress >= 1) {
+      animating = false;
+      animationEndTime = Date.now() - startTime;
+      animationDuration = animationEndTime - animationStartTime;
+      console.log("actual animationDuration: " + animationDuration);
+      console.log("set animationDuration: " + state.transitionDuration)
+
+      lastAnimationEndTime = animationStartTime + animationDuration;
       clearInterval(timer);
       return;
     }
@@ -212,33 +305,39 @@ function triggerAnimation(state,) {
       easedProgress = 1 - easeInOutQuad(1 - progress);
     }
     // use the eased transition value to interpolate the number of columns
-    const incementedColumns = currentColumns + (targetColumns - currentColumns) * easedProgress;
+    incementedColumns = currentColumns + (targetColumns - currentColumns) * easedProgress;
+    incementedScale = currentScale + (targetScale - currentScale) * easedProgress;
+    incementedRowGap = currentRowGap + (targetRowGap - currentRowGap) * easedProgress;
+    incementedColumnGap = currentColumnGap + (targetColumnGap - currentColumnGap) * easedProgress;
+    incementedScaleAnimation = currentScaleAnimation + (targetScaleAnimation - currentScaleAnimation) * easedProgress;
     container.style.gridTemplateColumns = 'repeat(' + Math.round(incementedColumns) + ', 1fr)';
-    // document.getElementById("divContainer").style.marginLeft = (44 - incementedColumns) * 12 + "px";
-    // if (incementedColumns <= 44) {
-    //   document.getElementById("divContainer").style.marginTop = (44 - incementedColumns) * -24 + "px";
-    // }
+    container.style.rowGap = incementedRowGap + "px";
+    container.style.columnGap = incementedColumnGap + "px";
+    container.style.scale = incementedScale;
+    // 
   }
   // start the animation by setting the start time and starting the interval
-  startTime = Date.now();
+  aniStartTime = Date.now();
   timer = setInterval(animate, 1000 / 24);
 }
 
 
 
 function easeInOutQuad(t) {
-  return t < .5 ? (1 - Math.sqrt(1 - Math.pow(2 * t, 2))) / 2 : (Math.sqrt(1 - Math.pow(-2 * t + 2, 2)) + 1) / 2
+  // return t < .5 ? (1 - Math.sqrt(1 - Math.pow(2 * t, 2))) / 2 : (Math.sqrt(1 - Math.pow(-2 * t + 2, 2)) + 1) / 2
   // return t === 0 ? 0 : Math.pow(2, 10 * (t - 1))
   // return t === 1 ? 1 : 1 - Math.pow(2, -10 * t)
   // return t === 0 ? 0 : t === 1 ? 1 : t < .5 ? Math.pow(2, 20 * t - 10) / 2 : (2 - Math.pow(2, -20 * t + 10)) / 2
   // return 1 - Math.sqrt(1 - (t * t))
   // return Math.sqrt(1 - Math.pow(t - 1, 2))
+  // nice
   // return t < .5 ? (1 - Math.sqrt(1 - Math.pow(2 * t, 2))) / 2 : (Math.sqrt(1 - Math.pow(-2 * t + 2, 2)) + 1) / 2
+  // bounce
   // return t === 0 ? 0 : t === 1 ? 1 : -Math.pow(2, 10 * t - 10) * Math.sin((t * 10 - 10.75) * (2 * Math.PI) / 3)
-  // return t === 0 ? 0 : t === 1 ? 1 : Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * (2 * Math.PI) / 3) + 1
+  //  return t === 0 ? 0 : t === 1 ? 1 : Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * (2 * Math.PI) / 3) + 1
   // return t < .5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1
   // return t < .5 ? 2 * t * t : -1 + (4 - 2 * t) * t
-  // return t < .5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t
+  return t < .5 ? 8 * t * t * t * t : 1 - 8 * (--t) * t * t * t
   // return t < .5 ? 16 * t * t * t * t * t : 1 + 16 * (--t) * t * t * t * t
 }
 
@@ -276,7 +375,7 @@ slider.value = 100;
 slider.step = 0.5;
 slider.oninput = function () {
   console.log(this.value);
-  
+
   document.getElementById("divContainer").style.scale = this.value / 100;
   scale = this.value / 100;
 
@@ -288,7 +387,7 @@ slider2.value = 0;
 slider2.step = 0.1;
 slider2.oninput = function () {
   console.log(this.value);
-  
+
   document.getElementById("divContainer").style.rowGap = this.value + "px";
   rowGap = this.value;
 
@@ -301,7 +400,7 @@ slider3.value = 44;
 slider3.step = 1;
 slider3.oninput = function () {
   console.log(this.value);
- 
+
   document.getElementById("divContainer").style.gridTemplateColumns = 'repeat(' + this.value + ', 1fr)';
   columns = this.value;
 
@@ -341,25 +440,25 @@ scaleAnimationSlider.value = 1;
 scaleAnimationSlider.step = 0.01;
 scaleAnimationSlider.oninput = function () {
   console.log(this.value);
-  
+
   scaleAnimation = this.value;
   document.documentElement.style.setProperty('--scaleAnimation', this.value);
 }
 
 // every 100ms update the sliderInfoDisplay
 setInterval(function () {
-  sliderInfoDisplay.innerHTML = '{' + '</br>' + 'transitionDuration: 0,</br> TriggerTime: 0, </br> next: 0,</br>' + 'scale: ' + scale + ',' + '</br>' + ' rowGap: ' + rowGap + ',' + '</br>' + ' columnGap: ' + columnGap + ',' + '</br>' + ' columns: ' + columns + '</br>' +'scaleAnimation: ' + scaleAnimation + '</br>' + '}';
+  sliderInfoDisplay.innerHTML = '{' + '</br>' + 'transitionDuration: 0,</br> TriggerTime: 0, </br> next: 0,</br>' + 'scale: ' + scale + ',' + '</br>' + ' rowGap: ' + rowGap + ',' + '</br>' + ' columnGap: ' + columnGap + ',' + '</br>' + ' columns: ' + columns + '</br>' + 'scaleAnimation: ' + scaleAnimation + '</br>' + '}';
 }, 100);
 
 
 
 
 // a button that is a boolean, if true the animation function will run/ plase it in the top of the sliderContainer. it should be darker when on and lighter when off
-var animateOn = false;
+var animateOn = true;
 var animateButton = document.createElement('button');
-animateButton.innerHTML = 'Animate is off';
-animateButton.style.backgroundColor = 'rgb(0, 0, 0)';
-animateButton.style.color = 'rgb(255, 255, 255)';
+animateButton.innerHTML = 'Animate is on';
+animateButton.style.backgroundColor = 'rgb(255,255,255)';
+animateButton.style.color = 'rgb(0,0,0)';
 // style the button and plase it in the DOM, plase it in the top right corner
 animateButton.style.position = 'absolute';
 // plase it in the top of the #sliderContainer
@@ -370,7 +469,6 @@ animateButton.style.marginTop = '-50px';
 document.getElementById('sliderContainer').appendChild(animateButton);
 // add an event listener to the button, on click start the process
 animateButton.addEventListener('click', function () {
-  debugger;
   if (!animateOn) {
     animateOn = true;
     animateButton.style.backgroundColor = 'rgb(255, 255, 255)';
@@ -392,7 +490,7 @@ startButton.innerHTML = 'Start';
 startButton.style.backgroundColor = 'rgb(0, 0, 0)';
 startButton.style.color = 'rgb(255, 255, 255)';
 // style the button and plase it in the DOM, plase it in the top right corner
-startButton.style.position = 'absolute';
+startButton.style.position = 'fixed';
 // plase it in the top of the #sliderContainer
 startButton.style.top = '0';
 startButton.style.left = '0';
@@ -402,14 +500,49 @@ startButton.style.marginTop = '-100px';
 document.getElementById('sliderContainer').appendChild(startButton);
 // add an event listener to the button, on click start the process
 startButton.addEventListener('click', async function () {
-  convertVideoToSVG('https://nftstorage.link/ipfs/bafybeie4jrftpqz2jhpkfuqtnrowrezm4whrpsnzhw4cmwrwdpli7ytgwa');
+  // convertVideoToSVG('https://nftstorage.link/ipfs/bafybeie4jrftpqz2jhpkfuqtnrowrezm4whrpsnzhw4cmwrwdpli7ytgwa');
+  createDivs();
 });
 
-// a slider to change @keyframes scale-animation {
-  // variable in css
-  // :root {
-  //   --scaleAnimation: 0;
-  // }
+createDivs();
+
+
+
+// add a toggle button that will hide and show the sliderContainer
+var toggleButton = document.createElement('button');
+toggleButton.innerHTML = 'Show/Hide';
+document.getElementById('sliderContainer').style.display = 'none';
+// style the button and plase it in the DOM, plase it in the top right corner
+toggleButton.style.position = 'absolute';
+// plase it in the top of the #sliderContainer
+toggleButton.style.top = '0';
+toggleButton.style.left = '0';
+toggleButton.style.zIndex = '100';
+// apend the button to the body 
+document.body.appendChild(toggleButton);
+// add an event listener to the button, on click start the process
+toggleButton.addEventListener('click', function () {
+  if (document.getElementById('sliderContainer').style.display == 'none') {
+    document.getElementById('sliderContainer').style.display = 'grid';
+  } else {
+    document.getElementById('sliderContainer').style.display = 'none';
+  }
+}
+);
+
+// create a div in the top right corner of the screen to display the current state + the elapsed time
+let div = document.createElement('div');
+div.style.position = 'fixed';
+div.style.top = '0';
+div.style.right = '0';
+div.style.color = 'white';
+div.style.padding = '10px';
+div.style.backgroundColor = 'rgba(0,0,0,0.5)';
+// give it the id 'infoDiv'
+div.id = 'infoDiv';
+document.body.appendChild(div);
+
+
 
 
 
